@@ -86,7 +86,7 @@ class RegisterActivity: AppCompatActivity() {
     }
 
     private fun performRegis(username: String, name: String, password: String, rePassword: String, tempatLahir: String, tanggalLahir: String, noTelepon: Int ){
-        val url = "http://192.168.0.105/uas_mobile/PHP/register.php"
+        val url = "http://192.168.0.111/uas_mobile/PHP/register.php"
 
         val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 

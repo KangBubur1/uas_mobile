@@ -13,8 +13,10 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.uas_mobile.HomeActivity
 import com.example.uas_mobile.R
 import com.example.uas_mobile.RegisterActivity
+import com.example.uas_mobile.SplashFragment
 
 
 class LoginFragment : Fragment() {
@@ -45,7 +47,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun performLogin(username: String, password: String) {
-        val url = "http://192.168.0.105/uas_mobile/PHP/login.php"
+        val url = "http://192.168.0.111/uas_mobile/PHP/login.php"
 
 
         val stringRequest = object : StringRequest(
@@ -55,8 +57,11 @@ class LoginFragment : Fragment() {
                 Toast.makeText(requireContext(), response, Toast.LENGTH_SHORT).show()
 
                 if (response == "Success") {
-                    navigateToNextScreen()
+                    val intent = Intent(requireContext(), HomeActivity::class.java)
+                    startActivity(intent)
                 }
+
+
             },
             Response.ErrorListener { error ->
                 Toast.makeText(requireContext(), "Error: ${error.message}", Toast.LENGTH_LONG).show()
@@ -73,10 +78,7 @@ class LoginFragment : Fragment() {
         Volley.newRequestQueue(requireContext()).add(stringRequest)
     }
 
-    private fun navigateToNextScreen() {
-        findNavController().navigate(R.id.action_loginFragment_to_home)
 
-    }
 
     // Ke Page Registrasi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
