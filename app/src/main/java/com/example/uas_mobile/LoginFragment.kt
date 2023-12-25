@@ -47,7 +47,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun performLogin(username: String, password: String) {
-        val url = "http://192.168.0.105/uas_mobile/PHP/login.php"
+        val url = "http://192.168.100.33/uas_mobile/PHP/login.php"
 
 
         val stringRequest = object : StringRequest(
@@ -93,4 +93,6 @@ class LoginFragment : Fragment() {
             startActivity(intent)
         }
     }
+
+
 }

@@ -37,6 +37,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        dataBinding = true
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -68,4 +72,9 @@ dependencies {
     //Volley
     implementation("com.android.volley:volley:1.2.1")
 
+    //carosel
+    implementation ("com.github.sparrow007:carouselrecyclerview:1.2.6")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    //cardview
+    implementation ("androidx.cardview:cardview:1.0.0")
 }
