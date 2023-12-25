@@ -17,18 +17,28 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
 
+        setContentView(R.layout.activity_home)
         loadFragment(HomeFragment())
+
         bottomNav = findViewById(R.id.bottomNavigationView)
+
         bottomNav.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.catalogFragment -> {
+                R.id.bottom_home -> {
+                    loadFragment(HomeFragment())
+                    true
+                }
+                R.id.bottom_catalog -> {
                     loadFragment(CatalogFragment())
                     true
                 }
-                R.id.historyFragment -> {
+                R.id.bottom_history -> {
                     loadFragment(HistoryFragment())
+                    true
+                }
+                R.id.bottom_profile -> {
+                    loadFragment(ProfileFragment())
                     true
                 }
                 else -> false
