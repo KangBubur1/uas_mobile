@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="10000dp"
+        android:layout_height="950dp"
         >
         <TextView
             android:id="@+id/dateTextView"
@@ -127,14 +127,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/thirdRow"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:columnCount="3"
-            android:rowCount="3">
+            android:layout_margin="16dp"
+            android:columnCount="2"
+            android:rowCount="2">
 
+            <!-- Card 1 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_row="0"
                 android:layout_rowWeight="1"
                 android:layout_column="0"
@@ -142,10 +142,8 @@
                 app:cardCornerRadius="4dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
                     android:orientation="vertical">
 
                     <ImageView
@@ -157,17 +155,17 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
-                        android:fontFamily="sans-serif-smallcaps"
                         android:text="Batman"
                         android:textAlignment="center"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Card 2 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_row="0"
                 android:layout_rowWeight="1"
                 android:layout_column="1"
@@ -175,76 +173,8 @@
                 app:cardCornerRadius="4dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/rudy" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:fontFamily="sans-serif-smallcaps"
-                        android:text="Rudy"
-                        android:textAlignment="center"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_row="1"
-                android:layout_rowWeight="1"
-                android:layout_column="0"
-                android:layout_columnWeight="1"
-                app:cardCornerRadius="4dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/thehobbit" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:fontFamily="sans-serif-smallcaps"
-                        android:text="The Hobbit"
-                        android:textAlignment="center"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_row="1"
-                android:layout_rowWeight="1"
-                android:layout_column="1"
-                android:layout_columnWeight="1"
-                app:cardCornerRadius="4dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
                     android:orientation="vertical">
 
                     <ImageView
@@ -256,15 +186,74 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
-                        android:fontFamily="sans-serif-smallcaps"
                         android:text="Maze runner"
                         android:textAlignment="center"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-            <!-- Add more CardViews for other grid items as needed -->
+            <!-- ... (similar structure for other cards) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_rowWeight="1"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                app:cardCornerRadius="4dp">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/thehobbit" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:text="The Hobbit"
+                        android:textAlignment="center"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_rowWeight="1"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                app:cardCornerRadius="4dp">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/cinderella" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:text="Cinderella"
+                        android:textAlignment="center"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </GridLayout>
+
 
 
     </RelativeLayout>
