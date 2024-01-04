@@ -77,4 +77,10 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     //cardview
     implementation ("androidx.cardview:cardview:1.0.0")
+    //jetbrain
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+    //mysql
+    implementation ("mysql:mysql-connector-java:8.0.26")
+
+
 }
