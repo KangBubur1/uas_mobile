@@ -91,6 +91,35 @@
             android:textSize="18sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textViewGambarBuku"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Gambar Buku">
+
+        <ImageView
+            android:id="@+id/imageButtonGambarBuku"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_upload"
+            android:contentDescription="Select Image"
+            tools:ignore="ImageContrastCheck"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textViewKodeKategori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Kode Kategori">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextKodeKategori"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:textSize="18sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <LinearLayout
         android:orientation="horizontal"
@@ -135,6 +164,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/back"
+            android:textSize="18sp"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button
+            android:id="@+id/buttonDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/display"
             android:textSize="18sp"
             style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>

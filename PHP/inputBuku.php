@@ -1,24 +1,29 @@
 <?php
 include 'koneksi.php';
-
-// Check if the required POST parameters are set
-if (isset($_POST['kodeBuku'], $_POST['judulBuku'], $_POST['pengarang'], $_POST['penerbit'], $_POST['tempatTerbit'], $_POST['jumlahSalinan'])) {
     $kodeBuku = $_POST['kodeBuku'];
     $judulBuku = $_POST['judulBuku'];
     $pengarang = $_POST['pengarang'];
     $penerbit = $_POST['penerbit'];
     $tempatTerbit = $_POST['tempatTerbit'];
     $jumlahSalinan = $_POST['jumlahSalinan'];
+    $gambarBuku = $_POST['gambarBuku'];
 
-    // SQL query to insert data into the database
-    $sql = "INSERT INTO buku (kodeBuku, judulBuku, pengarang, penerbit, tempatTerbit, jumlahSalinan) VALUES ('$kodeBuku', '$judulBuku', '$pengarang', '$penerbit', '$tempatTerbit', '$jumlahSalinan')";
+    date_default_timezone_set('Asia/Jakarta');
+    $path = 'images/' . date("d-m-Y-his") . '-' . rand(100, 10000) . '.jpg';
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Data inserted successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-} 
+    $query = "INSERT INTO buku (kodeBuku, judulBuku, pengarang, penerbit, tempatTerbit, jumlahSalinan, gambarBuku) 
+    VALUES ('".$kodeBuku."','".$judulBuku."','".$pengarang."','".$penerbit."','".$tempatTerbit."','".$jumlahSalinan."','".$path."')";
+	$result = mysqli_query($conn, $query) or die('Error query:  '.$query);
 
+    if ($result == 1){
+		file_put_contents($path, base64_decode($gambarBuku));
+		$response["message"]="Success Insert Image";
+	}
+	else{
+		$response["message"]="Failed To Insert Image";
+	}
+	
+	echo json_encode($response);
+	mysqli_close($conn);
 
 ?>
