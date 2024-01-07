@@ -74,10 +74,11 @@ class CatalogFragment : Fragment() {
         }
 
         for (book in bookList) {
+            val imageUrl = "http://192.168.0.105/PHP/${book.gambarBuku}"  // Sesuaikan dengan nama field gambarByteArray
             Log.d("Book", "Judul Buku: ${book.judulBuku}")
             Log.d("Book", "Pengarang: ${book.pengarang}")
             Log.d("Book", "Kategori: ${book.kategori}")
-            Log.d("Book", "Gambar Buku: ${book.gambarByteArray}")
+            Log.d("Book", "Gambar Buku: $imageUrl")
         }
     }
 

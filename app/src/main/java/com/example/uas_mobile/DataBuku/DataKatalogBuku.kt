@@ -4,5 +4,5 @@ data class DataKatalogBuku(
     var judulBuku: String,
     var pengarang: String,
     var kategori: String,
-    var gambarByteArray: ByteArray
+    var gambarBuku: String
 )
