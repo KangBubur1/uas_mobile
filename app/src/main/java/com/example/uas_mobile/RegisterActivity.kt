@@ -14,7 +14,6 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
-import com.google.android.material.textfield.TextInputEditText
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -86,7 +85,7 @@ class RegisterActivity: AppCompatActivity() {
     }
 
     private fun performRegis(username: String, name: String, password: String, rePassword: String, tempatLahir: String, tanggalLahir: String, noTelepon: Int ){
-        val url = "http://192.168.0.105/uas_mobile/PHP/register.php"
+        val url = "http://192.168.0.105/PHP/register.php"
 
         val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 

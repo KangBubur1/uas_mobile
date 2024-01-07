@@ -2,9 +2,9 @@
     <string name="app_name">uas_mobile</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="first_screen_text">BUKU ADALAH JENDELA PENGETAHUAN, PERPUSTAKAAN ADALAH GERBANG PETUALANGAN</string>
-    <string name="second_screen_text">DALAM HALAMAN BUKU,SENI BERKISAH,PERPUSTAKAAN MENJADI PANGGUNG KEBIJAKSANAAN</string>
-    <string name="third_screen_text">SETIAP BUKU ADALAH KARYA SENI</string>
+    <string name="first_screen_text">Buku Adalah Jendela Pengetahuan, Perpustakaan Adalah Gerbang Petualangan</string>
+    <string name="second_screen_text">Dalam Halaman Buku,Seni Berkisah,Perpustakaan Menjadi Panggung</string>
+    <string name="third_screen_text">Setiap Buku Adalah Karya Seni</string>
 
     <string name="username">Username</string>
     <string name="password">Password</string>

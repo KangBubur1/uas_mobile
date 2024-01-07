@@ -17,6 +17,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -77,4 +79,17 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     //cardview
     implementation ("androidx.cardview:cardview:1.0.0")
+
+    implementation ("com.github.mhdmoh:swipe-button:1.0.3")
+
+    // Recycler View
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
+    implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
+
+
+    // Panggil Data
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.1")
+
 }

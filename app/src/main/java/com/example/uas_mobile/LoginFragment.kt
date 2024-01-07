@@ -8,16 +8,16 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.uas_mobile.Admin.AdminNav
 import com.example.uas_mobile.HomeActivity
 import com.example.uas_mobile.R
 import com.example.uas_mobile.RegisterActivity
-import com.example.uas_mobile.SplashFragment
-
+import org.json.JSONException
+import org.json.JSONObject
 
 class LoginFragment : Fragment() {
 
@@ -47,23 +47,30 @@ class LoginFragment : Fragment() {
     }
 
     private fun performLogin(username: String, password: String) {
-        val url = "http://192.168.0.105/uas_mobile/PHP/login.php"
-
+        val url = "http://192.168.0.105/PHP/login.php"
 
         val stringRequest = object : StringRequest(
             Request.Method.POST,
             url,
             Response.Listener { response ->
-                Toast.makeText(requireContext(), response, Toast.LENGTH_SHORT).show()
+                println("Server Response: $response")
 
-                if (response == "Success") {
-                    val intent = Intent(requireContext(), HomeActivity::class.java)
+                val parts = response.split("|")
+                if (parts.size == 2 && parts[0] == "Success") {
+                    val userStatus = parts[1]
+
+                    val intent = if (isUserAdmin(userStatus)) {
+                        Intent(requireContext(), AdminNav::class.java)
+                    } else {
+                        Intent(requireContext(), HomeActivity::class.java)
+                    }
+
                     startActivity(intent)
-
                     requireActivity().finish()
+                } else {
+                    // Handle invalid response format or login failure
+                    Toast.makeText(requireContext(), "Login Failed", Toast.LENGTH_SHORT).show()
                 }
-
-
             },
             Response.ErrorListener { error ->
                 Toast.makeText(requireContext(), "Error: ${error.message}", Toast.LENGTH_LONG).show()
@@ -81,7 +88,6 @@ class LoginFragment : Fragment() {
     }
 
 
-
     // Ke Page Registrasi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -94,5 +100,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-
+    private fun isUserAdmin(status: String): Boolean {
+        return status.equals("admin", ignoreCase = true)
+    }
 }

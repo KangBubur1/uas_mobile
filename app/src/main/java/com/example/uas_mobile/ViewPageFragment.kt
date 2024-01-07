@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
+import com.example.swipebutton_library.SwipeButton
 import com.example.uas_mobile.screen.FirstScreen
 import com.example.uas_mobile.screen.SecondScreen
 import com.example.uas_mobile.screen.ThirdScreen
@@ -39,6 +40,8 @@ class ViewPageFragment : Fragment() {
 
         // Assign the adapter to the ViewPager2
         viewPager.adapter = adapter
+
+
 
         return view
     }

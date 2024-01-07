@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_buku"
+        android:icon="@drawable/ic_home"
+        android:title="Buku"/>
+
+    <item
+        android:id="@+id/bottom_member"
+        android:icon="@drawable/ic_catalog"
+        android:title="Member"/>
+
+    <item
+        android:id="@+id/bottom_peminjaman"
+        android:icon="@drawable/ic_history"
+        android:title="Peminjaman"/>
+
+    <item
+        android:id="@+id/bottom_pengembalian"
+        android:icon="@drawable/ic_profile"
+        android:title="Pengembalian"/>
+
+</menu>

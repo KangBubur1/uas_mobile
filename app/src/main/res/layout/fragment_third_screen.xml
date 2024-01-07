@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
@@ -19,12 +20,14 @@
         android:text="@string/third_screen_text"
         android:textColor="@color/black"
         android:textSize="@dimen/_15ssp"
+        android:visibility="visible"
+        android:alpha="0"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5
-"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -39,39 +42,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fsQuotes">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPrev"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="@dimen/_110sdp"
-            android:layout_height="@dimen/_45sdp"
+        <com.example.swipebutton_library.SwipeButton
+            android:id="@+id/swipeGetStarted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:button_background_drawable="@drawable/circular_white_background"
+            app:button_background_padding="1dp"
+            app:button_background_tint="@color/Primary"
+            app:button_background_src="@drawable/ic_arrow_foreground"
+            app:button_height="60dp"
+            app:button_width="60dp"
+            app:has_active_status="true"
+            app:has_finish_animation="true"
+            app:inner_text="Get Started"
             android:fontFamily="@font/poppins"
-            android:text="@string/btnPrev"
-            android:textColor="@color/Primary"
-            android:textSize="@dimen/_15ssp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnNext"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/Dark_Primary" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNext"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="@dimen/_110sdp"
-            android:layout_height="@dimen/_45sdp"
-            android:fontFamily="@font/poppins"
-            android:text="@string/btnNext"
-            android:textColor="@color/Primary"
-            android:textSize="@dimen/_15ssp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toEndOf="@+id/btnPrev"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/Dark_Primary" />
+            app:inner_text_color="@color/black"
+            app:inner_text_gravity="center"
+            app:inner_text_padding="8dp"
+            app:inner_text_size="15sp"
+            app:outer_background_drawable="@drawable/circular_white_background"
+            app:outer_background_height="60dp"
+            app:outer_background_tint="@color/white"
+            app:trail_background_tint="@color/Primary"
+            app:trail_enabled="true" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
