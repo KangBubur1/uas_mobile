@@ -70,16 +70,16 @@ class SendData : AppCompatActivity() {
             kirimdata()
 //            editTextKodeBuku.setText("")
         }
-//        buttonEdit.setOnClickListener{
-//            updatedata()
-//        }
-//        buttonDelete.setOnClickListener {
-//                val kodeBuku = editTextKodeBuku.text.toString()
-//                deleteData(kodeBuku)
-//        }
-//        buttonDisplay.setOnClickListener {
-//            displayData()
-//        }
+        buttonEdit.setOnClickListener{
+            updatedata()
+        }
+        buttonDelete.setOnClickListener {
+                val kodeBuku = editTextKodeBuku.text.toString()
+            deleteData(kodeBuku)
+        }
+        buttonDisplay.setOnClickListener {
+            displayData()
+        }
     }
     private fun imagePick() {
         val activityResultLauncher = registerForActivityResult(
@@ -156,78 +156,81 @@ class SendData : AppCompatActivity() {
         }
     }
 
-//    private fun updatedata() {
-//        if (resId == 1) {
-//            val byteArrayOutputStream = ByteArrayOutputStream()
-//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
-//            val bytes = byteArrayOutputStream.toByteArray()
-//            val base64Image = Base64.encodeToString(bytes, Base64.DEFAULT)
-//            val url = "http://192.168.100.33/PHP/update.php"
-//            val stringRequest = object : StringRequest(
-//                Request.Method.POST,
-//                url,
-//                Response.Listener { response ->
-//                    Log.d("Response", "Server Response: $response")
-//                    Toast.makeText(this, response, Toast.LENGTH_SHORT).show()
-//
-//                },
-//                Response.ErrorListener { error ->
-//                    Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_LONG).show()
-//                }) {
-//
-//                override fun getParams(): MutableMap<String, String> {
-//                    val params = HashMap<String, String>()
-//                    params["kodeBuku"] = editTextKodeBuku.text.toString()
-//                    params["judulBuku"] = editTextJudulBuku.text.toString()
-//                    params["pengarang"] = editTextPengarang.text.toString()
-//                    params["penerbit"] = editTextPenerbit.text.toString()
-//                    params["tempatTerbit"] = editTextTempatTerbit.text.toString()
-//                    params["jumlahSalinan"] = editTextJumlahSalinan.text.toString()
-//                    params["gambarBuku"] = base64Image
-//                    params["jumlahSalinan"] = editTextKodeKategori.text.toString()
-//                    return params
-//                }
-//
-//                override fun getBodyContentType(): String {
-//                    return "application/x-www-form-urlencoded; charset=UTF-8"
-//                }
-//            }
-//            Volley.newRequestQueue(this).add(stringRequest)
-//        }
-//    }
-//    private fun deleteData(kodeBuku: String) {
-//        val url = "http://192.168.100.33/PHP/deleteBuku.php"
-//        val stringRequest = object : StringRequest(
-//            Request.Method.POST,
-//            url,
-//            Response.Listener { response ->
-//                val jsonObj = JSONObject(response)
-//                Toast.makeText(this, jsonObj.getString("message"), Toast.LENGTH_SHORT).show()
-//            },
-//            Response.ErrorListener { error ->
-//                Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_LONG).show()
-//            }) {
-//
-//            override fun getParams(): MutableMap<String, String> {
-//                val params = HashMap<String, String>()
-//                params["kodeBuku"] = kodeBuku
-//                return params
-//            }
-//
-//            override fun getBodyContentType(): String {
-//                return "application/x-www-form-urlencoded; charset=UTF-8"
-//            }
-//        }
-//
-//        Volley.newRequestQueue(this).add(stringRequest)
-//    }
-//    private fun displayData(){
-//        val intent = Intent(this@SendData, ViewData::class.java)
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//        startActivity(intent)
-//
-//    }
+    private fun updatedata() {
+        if (resId == 1) {
+            val byteArrayOutputStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
+            val bytes = byteArrayOutputStream.toByteArray()
+            val base64Image = Base64.encodeToString(bytes, Base64.DEFAULT)
+            val url = "http://192.168.100.33/PHP/updateBuku.php"
+            val stringRequest = object : StringRequest(
+                Request.Method.POST,
+                url,
+                Response.Listener { response ->
+                    Log.d("Response", "Server Response: $response")
+                    Toast.makeText(this, response, Toast.LENGTH_SHORT).show()
+
+                },
+                Response.ErrorListener { error ->
+                    Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_LONG).show()
+                }) {
+
+                override fun getParams(): MutableMap<String, String> {
+                    val params = HashMap<String, String>()
+                    params["kodeBuku"] = editTextKodeBuku.text.toString()
+                    params["judulBuku"] = editTextJudulBuku.text.toString()
+                    params["pengarang"] = editTextPengarang.text.toString()
+                    params["penerbit"] = editTextPenerbit.text.toString()
+                    params["tempatTerbit"] = editTextTempatTerbit.text.toString()
+                    params["jumlahSalinan"] = editTextJumlahSalinan.text.toString()
+                    params["gambarBuku"] = base64Image
+                    params["kodeKategori"] = editTextKodeKategori.text.toString()
+                    return params
+                }
+
+                override fun getBodyContentType(): String {
+                    return "application/x-www-form-urlencoded; charset=UTF-8"
+                }
+            }
+            Volley.newRequestQueue(this).add(stringRequest)
+        }
+    }
+    private fun deleteData(kodeBuku: String) {
+        val url = "http://192.168.100.33/PHP/deleteBuku.php"
+        val stringRequest = object : StringRequest(
+            Request.Method.POST,
+            url,
+            Response.Listener { response ->
+                Log.d("Response", "Server Response: $response")
+
+                val jsonObj = JSONObject(response)
+                Toast.makeText(this, jsonObj.getString("message"), Toast.LENGTH_SHORT).show()
+            },
+            Response.ErrorListener { error ->
+                Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_LONG).show()
+            }) {
+
+            override fun getParams(): MutableMap<String, String> {
+                val params = HashMap<String, String>()
+                params["kodeBuku"] = kodeBuku
+                return params
+            }
+
+            override fun getBodyContentType(): String {
+                return "application/x-www-form-urlencoded; charset=UTF-8"
+            }
+        }
+
+        Volley.newRequestQueue(this).add(stringRequest)
+    }
+    private fun displayData(){
+        val intent = Intent(this@SendData, DisplayActivity::class.java)
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+
+    }
 
 }
 
