@@ -9,16 +9,24 @@ import com.example.uas_mobile.DataBuku.DataKatalogBuku
 import com.example.uas_mobile.R
 import com.example.uas_mobile.databinding.RvItemListBinding
 
-class AdapterKatalogBuku(private val bookList: List<DataKatalogBuku>) :
+class AdapterKatalogBuku(private val bookList: List<DataKatalogBuku>, private val itemClickListener: OnItemClickListener) :
     RecyclerView.Adapter<AdapterKatalogBuku.BookViewHolder>() {
 
+
+    interface OnItemClickListener {
+        fun onItemClick(book: DataKatalogBuku?)
+    }
+
     private val baseUrl = "http://192.168.0.105/PHP/"
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
         val binding = RvItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        Log.d("AdapterKatalogBuku", "onCreateViewHolder: ViewHolder created")
         return BookViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
+        Log.d("AdapterKatalogBuku", "onBindViewHolder: Position $position")
         val book = bookList?.get(position)
 
         if (book != null) {
@@ -48,10 +56,14 @@ class AdapterKatalogBuku(private val bookList: List<DataKatalogBuku>) :
         } else {
             Log.e("AdapterKatalogBuku", "Item at position $position is null.")
         }
+
+        holder.itemView.setOnClickListener{
+            itemClickListener.onItemClick(book)
+        }
     }
 
     override fun getItemCount(): Int {
-        return bookList?.size ?: 0
+        return bookList.size
     }
 
     inner class BookViewHolder(val binding: RvItemListBinding) : RecyclerView.ViewHolder(binding.root)

@@ -8,10 +8,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uas_mobile.Adapter.AdapterKatalogBuku
 import com.example.uas_mobile.DataBuku.DataKatalogBuku
+import com.example.uas_mobile.ViewModel.SingleItemViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -19,7 +22,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CatalogFragment : Fragment() {
+class CatalogFragment : Fragment(), AdapterKatalogBuku.OnItemClickListener {
 
     private val bookList = mutableListOf<DataKatalogBuku>()
     private var recyclerView: RecyclerView? = null
@@ -29,6 +32,8 @@ class CatalogFragment : Fragment() {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(ApiService::class.java)
+
+    private val viewModel: SingleItemViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,9 +73,14 @@ class CatalogFragment : Fragment() {
     private fun setupRecyclerView(books: List<DataKatalogBuku>) {
         bookList.addAll(books)
         recyclerView?.let {
-            val adapter = AdapterKatalogBuku(bookList)
-            it.layoutManager = LinearLayoutManager(requireContext())
-            it.adapter = adapter
+            try {
+                val adapter = AdapterKatalogBuku(bookList, this@CatalogFragment)
+                it.layoutManager = LinearLayoutManager(requireContext())
+                it.adapter = adapter
+            }catch (e: Exception) {
+                Log.e("CatalogFragment", "Error setting up RecyclerView adapter", e)
+            }
+
         }
 
         for (book in bookList) {
@@ -82,5 +92,14 @@ class CatalogFragment : Fragment() {
         }
     }
 
-
+    override fun onItemClick(book: DataKatalogBuku?) {
+        if (book != null) {
+            viewModel.setSelectedBook(book)
+            val singleItemFragment = SingleItemKatalogBuku()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, singleItemFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+    }
 }

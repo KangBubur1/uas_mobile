@@ -67,7 +67,6 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@mipmap/ic_read_more"
-            android:onClick="single_item_page"
             android:layout_gravity="center_vertical|end" />
     </LinearLayout>
 </LinearLayout>

@@ -2,11 +2,15 @@ package com.example.uas_mobile
 
 
 import LoginFragment
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.Response
@@ -39,6 +43,8 @@ class RegisterActivity: AppCompatActivity() {
         materialBuilder.setTitleText("Select Date of Birth")
 
         val materialDatePicker = materialBuilder.build()
+
+
 
         materialDatePicker.addOnPositiveButtonClickListener(object : MaterialPickerOnPositiveButtonClickListener<Long>{
             override fun onPositiveButtonClick(selection: Long) {
@@ -119,6 +125,24 @@ class RegisterActivity: AppCompatActivity() {
 
         Volley.newRequestQueue(this).add(stringRequest)
 
+    }
+
+    private fun showConfirmation() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Confirmation")
+        builder.setMessage("Do You Want To Go Back?")
+        builder.setPositiveButton("Yes") {
+            dialogInterface: DialogInterface, i : Int->
+            finish()
+        }
+        builder.setNegativeButton("No") { dialogInterface: DialogInterface, i: Int ->
+            dialogInterface.dismiss()
+        }
+        val dialog = builder.create()
+        dialog.show()
+    }
+    fun registerBack(view: View){
+        showConfirmation()
     }
 
 }

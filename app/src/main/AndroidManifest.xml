@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Buku.AdminBuku"
+            android:exported="false" />
+        <activity
             android:name=".Admin.AdminNav"
             android:exported="false" />
         <activity
@@ -27,9 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".HomeActivity"></activity>
-
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".Peminjaman.AdminPeminjam" />
 
         <meta-data
             android:name="preloaded_fonts"
