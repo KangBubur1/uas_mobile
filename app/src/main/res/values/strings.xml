@@ -10,18 +10,17 @@
     <string name="password">Password</string>
     <string name="repassword">Re-Password</string>
     <string name="nama">Name</string>
-    <string name="tempatLahir">Place of Birth</string>
-    <string name="tanggalLahir">Birth Date</string>
-    <string name="noTelepon">Phone Number</string>
+    <string name="tempatLahir">Tempat Lahir</string>
+    <string name="tanggalLahir">Tanggal Lahir</string>
+    <string name="noTelepon">No Telepon</string>
     <string name="btnLogin">Login</string>
     <string name="btnNext">Next</string>
     <string name="btnPrev">Previous</string>
-    <string name="btnRegistrasi">Registration</string>
-    <string name="add_new">Add</string>
-    <string name="edit">Edit</string>
-    <string name="delete">Delete</string>
-    <string name="back">Back</string>
-    <string name="logout">Logout</string>
+    <string name="btnRegistrasi">Registrasi</string>
+    <string name="add_new">add</string>
+    <string name="edit">edit</string>
+    <string name="delete">delete</string>
+    <string name="back">back</string>
 
 
 </resources>

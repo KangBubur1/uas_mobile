@@ -17,8 +17,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -91,9 +89,18 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:okhttp:4.9.1")
-
-    // Panggil Data Gambar
+// Panggil Data Gambar
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
+    //picasso
+    implementation  ("com.squareup.picasso:picasso:2.8")
+    //jetbrain
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+    //mysql
+    implementation ("mysql:mysql-connector-java:8.0.26")
+    //picasso
+    implementation  ("com.squareup.picasso:picasso:2.8")
+
+
 
 }

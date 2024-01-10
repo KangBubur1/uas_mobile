@@ -34,7 +34,6 @@ class CatalogFragment : Fragment(), AdapterKatalogBuku.OnItemClickListener {
         .create(ApiService::class.java)
 
     private val viewModel: SingleItemViewModel by activityViewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -102,4 +101,5 @@ class CatalogFragment : Fragment(), AdapterKatalogBuku.OnItemClickListener {
                 .commit()
         }
     }
+
 }
