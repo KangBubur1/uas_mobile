@@ -1,5 +1,6 @@
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +37,9 @@ class LoginFragment : Fragment() {
         etPassword = view.findViewById(R.id.etPassword)
         btnLogin = view.findViewById(R.id.btnLogin)
 
+        // Pengecekan apakah user sudah login
+        checkUserLoggedIn()
+
         btnLogin.setOnClickListener {
             val username = etUsername.text.toString()
             val password = etPassword.text.toString()
@@ -44,6 +48,23 @@ class LoginFragment : Fragment() {
         }
 
         return view
+    }
+
+    private fun checkUserLoggedIn() {
+        val sharedPreferences = requireContext().getSharedPreferences("loginPref",0)
+        val username = sharedPreferences.getString("username", "")
+
+        if(!username.isNullOrEmpty()) {
+            val userStatus = sharedPreferences.getString("userStatus", "")
+            val intent = if (isUserAdmin(userStatus!!)) {
+                Intent(requireContext(), AdminNav::class.java)
+            } else {
+                Intent(requireContext(), HomeActivity::class.java)
+            }
+
+            startActivity(intent)
+            requireActivity().finish()
+        }
     }
 
     private fun performLogin(username: String, password: String) {
@@ -56,8 +77,18 @@ class LoginFragment : Fragment() {
                 println("Server Response: $response")
 
                 val parts = response.split("|")
-                if (parts.size == 2 && parts[0] == "Success") {
+                if (parts.size == 7 && parts[0] == "Success") {
                     val userStatus = parts[1]
+                    val name = parts[2]
+                    val password = parts[3]
+                    val tempatLahir = parts[4]
+                    val tanggalLahir = parts[5]
+                    val noTelepon = parts[6]
+
+                    // Simpan informasi login
+                    saveLoginInfo(username, userStatus, name, password, tempatLahir, tanggalLahir, noTelepon)
+
+                    Log.d("LoginFragment", "Saved login information: $username, $userStatus, $name, $password, $tempatLahir, $tanggalLahir, $noTelepon")
 
                     val intent = if (isUserAdmin(userStatus)) {
                         Intent(requireContext(), AdminNav::class.java)
@@ -98,6 +129,20 @@ class LoginFragment : Fragment() {
             val intent = Intent(requireContext(), RegisterActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    // Menggunakan Sharedpreferences
+    private fun saveLoginInfo(username: String, userStatus: String, name: String, password: String, tempatLahir: String, tanggalLahir: String, noTelepon: String ) {
+        val sharedPreferences = requireContext().getSharedPreferences("loginPref",0)
+        val editor = sharedPreferences.edit()
+        editor.putString("username", username)
+        editor.putString("userStatus", userStatus)
+        editor.putString("name", name)
+        editor.putString("password", password)
+        editor.putString("tempatLahir", tempatLahir)
+        editor.putString("tanggalLahir", tanggalLahir)
+        editor.putString("noTelepon", noTelepon)
+        editor.apply()
     }
 
     private fun isUserAdmin(status: String): Boolean {
