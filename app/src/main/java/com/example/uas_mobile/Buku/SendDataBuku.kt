@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Base64
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -18,10 +17,8 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.uas_mobile.AppConfig
 import com.example.uas_mobile.R
-import com. squareup.picasso.Picasso
-import org.json.JSONException
-import org.json.JSONObject
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
@@ -47,7 +44,7 @@ class SendDataBuku : AppCompatActivity() {
     private lateinit var buttonBack: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add)
+        setContentView(R.layout.activity_add_buku)
 
         // ... (other existing code)
 
@@ -109,7 +106,7 @@ class SendDataBuku : AppCompatActivity() {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
             val bytes = byteArrayOutputStream.toByteArray()
             val base64Image = Base64.encodeToString(bytes, Base64.DEFAULT)
-            val url = "http://10.234.211.146/PHP/inputBuku.php"
+            val url = AppConfig().IP_SERVER + "/PHP/inputBuku.php"
             val stringRequest = object : StringRequest(
                 Request.Method.POST,
                 url,
@@ -160,7 +157,7 @@ class SendDataBuku : AppCompatActivity() {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
                 val bytes = byteArrayOutputStream.toByteArray()
                 val base64Image = Base64.encodeToString(bytes, Base64.DEFAULT)
-                val url = "http://10.234.211.146/PHP/updateBuku.php"
+                val url = AppConfig().IP_SERVER + "/PHP/updateBuku.php"
                 val stringRequest = object : StringRequest(
                     Request.Method.POST,
                     url,
@@ -197,7 +194,7 @@ class SendDataBuku : AppCompatActivity() {
 
     }
     private fun displayData() {
-        val intent = Intent(this@SendDataBuku, DisplayActivity::class.java)
+        val intent = Intent(this@SendDataBuku, ViewBuku::class.java)
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

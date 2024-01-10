@@ -1,4 +1,4 @@
-package com.example.uas_mobile.Buku
+package com.example.uas_mobile.Adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -17,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.uas_mobile.MainActivity
+import com.example.uas_mobile.AppConfig
+import com.example.uas_mobile.Buku.SendDataBuku
+import com.example.uas_mobile.Buku.ViewBuku
 import com.example.uas_mobile.R
 import com.example.uas_mobile.model.Product
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -29,7 +31,7 @@ class AdapterBuku(var context: Context, private var productList: List<Product>) 
     @SuppressLint("InflateParams")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.single_data, null)
+        val view = inflater.inflate(R.layout.single_data_buku, null)
         return ImageViewHolder(view)
     }
 
@@ -67,12 +69,12 @@ class AdapterBuku(var context: Context, private var productList: List<Product>) 
                     R.id.delete_menu -> {
                         MaterialAlertDialogBuilder(context).setTitle("Delete").setMessage("Yakin hapus?")
                             .setPositiveButton("Delete"){_,_->
-                                val url: String = "http://10.234.211.146/PHP/deleteBuku.php"
+                                val url: String = AppConfig().IP_SERVER + "/PHP/deleteBuku.php"
                                 val strReq = object : StringRequest(Method.POST,url, Response.Listener { response ->
                                     try {
                                         val jsonObj = JSONObject(response)
                                         Toast.makeText(context, jsonObj.getString("message"), Toast.LENGTH_SHORT).show()
-                                        val intent = Intent(context, DisplayActivity::class.java)
+                                        val intent = Intent(context, ViewBuku::class.java)
                                         context.startActivity(intent)
                                     }
                                     catch (e: JSONException) { e.printStackTrace() } },

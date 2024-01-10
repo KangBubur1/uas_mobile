@@ -1,12 +1,22 @@
 package com.example.uas_mobile.User
 
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.EditText
+import android.widget.Toast
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.example.uas_mobile.AppConfig
+import com.example.uas_mobile.Peminjaman.ViewDataPeminjaman
 import com.example.uas_mobile.R
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
+import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -23,7 +33,6 @@ class UserEditProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_edit_profile)
-
         etName = findViewById(R.id.nameInputEditText)
         etTempatLahir = findViewById(R.id.tempatLahirInputEditText)
         etTanggalLahir = findViewById(R.id.txtTanggalLahir)
@@ -37,6 +46,7 @@ class UserEditProfile : AppCompatActivity() {
         val tempatLahir = sharedPreferences.getString("tempatLahir", "")
         val tanggalLahir = sharedPreferences.getString("tanggalLahir", "")
         val noTelepon = sharedPreferences.getString("noTelepon", "")
+        Log.d("UserEditProfile","$name,$tempatLahir,$tanggalLahir,$noTelepon")
 
         // Populate EditText fields with existing user data
         etName.setText(name)
@@ -77,5 +87,38 @@ class UserEditProfile : AppCompatActivity() {
             materialDatePicker = materialBuilder.build()
         }
 
+
+
     }
+
+//    private fun updateData() {
+//            buttonUpdate.setOnClickListener{
+//                val url1: String = AppConfig().IP_SERVER + "/PHP/updatePeminjaman.php"
+//                val stringRequest = object : StringRequest(
+//                    Method.POST, url1,
+//                    Response.Listener { response ->
+//                        val jsonObj = JSONObject(response)
+//                        Toast.makeText(this, jsonObj.getString("message"), Toast.LENGTH_SHORT).show()
+//                        val intent = Intent(this@SendDataPeminjaman, ViewDataPeminjaman::class.java)
+//                        startActivity(intent)
+//                        finish()
+//                    },
+//                    Response.ErrorListener { _ ->
+//                        Toast.makeText(this, "Gagal Terhubung", Toast.LENGTH_SHORT).show()
+//                    }
+//                ) {
+//                    override fun getParams(): HashMap<String, String> {
+//                        val params = HashMap<String, String>()
+//                        params["kodePinjam"]    = etKodePinjam.text.toString()
+//                        params["tanggalPinjam"] = etTanggalPinjam.text.toString()
+//                        params["periodePinjam"] = etPeriodePinjam.text.toString()
+//                        params["kodeBuku"]      = etKodeBuku.text.toString()
+//                        params["idMember"]      = etIdMember.text.toString()
+//                        return params
+//                    }
+//                }
+//                Volley.newRequestQueue(this).add(stringRequest)
+//            }
+//        }
+//    }
 }

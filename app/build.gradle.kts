@@ -98,9 +98,6 @@ dependencies {
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
     //mysql
     implementation ("mysql:mysql-connector-java:8.0.26")
-    //picasso
-    implementation  ("com.squareup.picasso:picasso:2.8")
-
 
 
 }

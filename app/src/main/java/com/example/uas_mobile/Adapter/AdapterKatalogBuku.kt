@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.uas_mobile.AppConfig
 import com.example.uas_mobile.DataBuku.DataKatalogBuku
 import com.example.uas_mobile.R
-import com.example.uas_mobile.databinding.RvItemListBinding
+import com.example.uas_mobile.databinding.RvItemListBukuBinding
 
 class AdapterKatalogBuku(private val bookList: List<DataKatalogBuku>, private val itemClickListener: OnItemClickListener) :
     RecyclerView.Adapter<AdapterKatalogBuku.BookViewHolder>() {
@@ -17,10 +18,10 @@ class AdapterKatalogBuku(private val bookList: List<DataKatalogBuku>, private va
         fun onItemClick(book: DataKatalogBuku?)
     }
 
-    private val baseUrl = "http://192.168.0.105/PHP/"
+    private val baseUrl = AppConfig().IP_SERVER + "/PHP/"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
-        val binding = RvItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = RvItemListBukuBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         Log.d("AdapterKatalogBuku", "onCreateViewHolder: ViewHolder created")
         return BookViewHolder(binding)
     }
@@ -66,5 +67,5 @@ class AdapterKatalogBuku(private val bookList: List<DataKatalogBuku>, private va
         return bookList.size
     }
 
-    inner class BookViewHolder(val binding: RvItemListBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class BookViewHolder(val binding: RvItemListBukuBinding) : RecyclerView.ViewHolder(binding.root)
 }

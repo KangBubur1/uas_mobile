@@ -10,7 +10,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/bh2_newsize"
         android:supportsRtl="true"
         android:theme="@style/Theme.Uas_mobile"
         android:usesCleartextTraffic="true"
@@ -29,6 +29,15 @@
         </activity>
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".HomeActivity"></activity>
+
+        <activity android:name=".Peminjaman.ViewDataPeminjaman"></activity>
+        <activity android:name=".Peminjaman.SendDataPeminjaman"></activity>
+
+
+        <activity android:name=".Buku.ViewBuku"></activity>
+        <activity android:name=".Buku.SendDataBuku"></activity>
+
+        <activity android:name=".User.UserEditProfile"></activity>
 
 
         <meta-data

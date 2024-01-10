@@ -5,10 +5,10 @@ import LoginFragment
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -79,7 +79,6 @@ class RegisterActivity: AppCompatActivity() {
             val tempatLahir = etTempatLahir.text.toString()
             val tanggalLahir = etTanggalLahir.text.toString()
             val noTelepon = etNoTelepon.text.toString().toInt()
-
             if ( password == rePassword ){
                 performRegis(username,name,password, rePassword, tempatLahir, tanggalLahir, noTelepon)
             } else {
@@ -90,8 +89,8 @@ class RegisterActivity: AppCompatActivity() {
         }
     }
 
-    private fun performRegis(username: String, name: String, password: String, rePassword: String, tempatLahir: String, tanggalLahir: String, noTelepon: Int ){
-        val url = "http://192.168.0.105/PHP/register.php"
+    private fun performRegis(username: String, name: String, password: String, rePassword: String, tempatLahir: String, tanggalLahir: String, noTelepon: Int){
+        val url = AppConfig().IP_SERVER + "/PHP/register.php"
 
         val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
@@ -107,6 +106,7 @@ class RegisterActivity: AppCompatActivity() {
                 }
             },
             Response.ErrorListener {error ->
+                Log.e("Volley Error", "Error: $error")
                 Toast.makeText(this, "Error: $error", Toast.LENGTH_SHORT).show()
             }) {
 

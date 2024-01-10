@@ -14,6 +14,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.uas_mobile.Admin.AdminNav
+import com.example.uas_mobile.AppConfig
 import com.example.uas_mobile.HomeActivity
 import com.example.uas_mobile.R
 import com.example.uas_mobile.RegisterActivity
@@ -26,10 +27,13 @@ class LoginFragment : Fragment() {
     private lateinit var etPassword: EditText
     private lateinit var btnLogin: Button
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
         // Initialize views
@@ -68,7 +72,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun performLogin(username: String, password: String) {
-        val url = "http://192.168.0.105/PHP/login.php"
+        val url = AppConfig().IP_SERVER + "/PHP/login.php"
 
         val stringRequest = object : StringRequest(
             Request.Method.POST,
@@ -99,6 +103,7 @@ class LoginFragment : Fragment() {
                     startActivity(intent)
                     requireActivity().finish()
                 } else {
+
                     // Handle invalid response format or login failure
                     Toast.makeText(requireContext(), "Login Failed", Toast.LENGTH_SHORT).show()
                 }

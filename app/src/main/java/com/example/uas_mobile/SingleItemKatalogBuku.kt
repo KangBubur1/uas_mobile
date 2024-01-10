@@ -29,17 +29,17 @@ class SingleItemKatalogBuku : Fragment() {
         val categoryTextView = view.findViewById<TextView>(R.id.categoryTextView)
         val imageView = view.findViewById<ImageView>(R.id.gambar)
 
-        viewModel.selectedBookLiveData.observe(viewLifecycleOwner, { book ->
+        viewModel.selectedBookLiveData.observe(viewLifecycleOwner) { book ->
             if (book != null) {
                 Log.d("Fragment", "Observed book: $book")
                 titleTextView.text = "Title: ${book.judulBuku}"
                 authorTextView.text = "Author: ${book.pengarang}"
                 categoryTextView.text = "Category: ${book.kategori}"
                 Glide.with(this)
-                    .load("http://192.168.0.105/PHP/${book.gambarBuku}")
+                    .load(AppConfig().IP_SERVER + "/PHP/${book.gambarBuku}")
                     .into(imageView)
             }
-        })
+        }
 
         return view
     }

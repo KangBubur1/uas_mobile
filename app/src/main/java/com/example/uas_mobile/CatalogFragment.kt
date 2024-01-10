@@ -28,7 +28,7 @@ class CatalogFragment : Fragment(), AdapterKatalogBuku.OnItemClickListener {
     private var recyclerView: RecyclerView? = null
 
     private val apiService = Retrofit.Builder()
-        .baseUrl("http://192.168.0.105/PHP/getCategory.php/")
+        .baseUrl(AppConfig().IP_SERVER + "/PHP/getCategory.php/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(ApiService::class.java)
@@ -51,7 +51,6 @@ class CatalogFragment : Fragment(), AdapterKatalogBuku.OnItemClickListener {
         }
 
     }
-
 
     private suspend fun fetchDataFromDatabase() {
         try {
@@ -83,7 +82,7 @@ class CatalogFragment : Fragment(), AdapterKatalogBuku.OnItemClickListener {
         }
 
         for (book in bookList) {
-            val imageUrl = "http://192.168.0.105/PHP/${book.gambarBuku}"  // Sesuaikan dengan nama field gambarByteArray
+            val imageUrl = AppConfig().IP_SERVER + "/PHP/${book.gambarBuku}"  // Sesuaikan dengan nama field gambarByteArray
             Log.d("Book", "Judul Buku: ${book.judulBuku}")
             Log.d("Book", "Pengarang: ${book.pengarang}")
             Log.d("Book", "Kategori: ${book.kategori}")

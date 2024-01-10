@@ -18,9 +18,12 @@
     <string name="btnPrev">Previous</string>
     <string name="btnRegistrasi">Registrasi</string>
     <string name="add_new">add</string>
-    <string name="edit">edit</string>
-    <string name="delete">delete</string>
-    <string name="back">back</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="back">Back</string>
+    <string name="image">Image</string>
+    <string name="display">Display</string>
+    <string name="logout">Logout</string>
 
 
 </resources>
