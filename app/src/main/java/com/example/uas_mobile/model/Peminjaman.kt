@@ -10,7 +10,7 @@ class Peminjaman {
         get() = field
         set(value) { field = value }
 
-    var periodePinjam: String = ""
+    var tanggalPengembalian: String = ""
         get() = field
         set(value) { field = value }
 

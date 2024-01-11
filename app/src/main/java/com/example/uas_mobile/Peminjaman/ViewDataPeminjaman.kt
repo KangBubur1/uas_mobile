@@ -15,6 +15,7 @@ import com.example.uas_mobile.Admin.AdminNav
 import com.example.uas_mobile.AppConfig
 import com.example.uas_mobile.R
 import com.example.uas_mobile.model.Peminjaman
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONObject
 
 class ViewDataPeminjaman : AppCompatActivity() {
@@ -30,6 +31,13 @@ class ViewDataPeminjaman : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         displayData()
 
+
+        val fabAdd: FloatingActionButton = findViewById(R.id.fabAdd)
+        fabAdd.setOnClickListener {
+            val intent = Intent(this, SendDataPeminjaman::class.java)
+            startActivity(intent)
+        }
+
     }
     private fun displayData() {
         val url: String = AppConfig().IP_SERVER + "/PHP/viewDataPeminjaman.php"
@@ -43,9 +51,9 @@ class ViewDataPeminjaman : AppCompatActivity() {
                 val item = jsonArray.getJSONObject(i)
                 peminjaman = Peminjaman()
                 peminjaman.kodePinjam       = item.getString("kodePinjam")
-                peminjaman.tanggalPinjam    = item.getString("tanggalPinjam")
-                peminjaman.periodePinjam    = item.getString("periodePinjam")
-                peminjaman.kodeBuku         = item.getString("kodeBuku")
+                peminjaman.tanggalPinjam            = item.getString("tanggalPinjam")
+                peminjaman.tanggalPengembalian    = item.getString("tanggalPengembalian")
+                peminjaman.kodeBuku                 = item.getString("kodeBuku")
                 peminjaman.idMember         = item.getString("idMember")
                 pinjamList.add(peminjaman)
             }
@@ -61,4 +69,5 @@ class ViewDataPeminjaman : AppCompatActivity() {
         val intent = Intent(this, AdminNav::class.java)
         startActivity(intent)
     }
+
 }

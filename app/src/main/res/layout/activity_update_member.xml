@@ -6,13 +6,36 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Member.UpdateDataMember"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginTop="16dp">
+    android:background="@color/grey">
+
+    <ImageView
+        android:id="@+id/btnBackMember"
+        android:onClick="backMember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="5dp">
+
+    </ImageView>
 
     <!-- Username -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Data Member"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/idMemberUpdateTextLayout"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -41,6 +64,8 @@
         android:id="@+id/usernameTextLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center_vertical"
         android:hint="Username"
         app:layout_constraintBottom_toTopOf="@+id/passwordInputLayout"
@@ -66,6 +91,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:hint="Name"
         app:layout_constraintBottom_toTopOf="@+id/passwordInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,6 +128,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tempatLahirEditText"
             android:layout_width="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_height="wrap_content"
             android:inputType="text"
             android:fontFamily="@font/poppins"
@@ -112,6 +141,8 @@
     <!-- Phone Number -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tanggalLahirTextLayour"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -136,6 +167,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/noTeleponTextLayout"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -162,23 +195,27 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonUpdate"
-            android:layout_width="wrap_content"
+            style="@style/Widget.Material3.Button.IconButton.Filled"
+            android:layout_width="99dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/Primary"
+            android:fontFamily="@font/poppins"
             android:text="save"
-
             android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/buttonBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/back"
-            android:textSize="18sp"
-            style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
+    <ImageView
+        android:layout_width="259dp"
+        android:layout_height="278dp"
+        android:src="@drawable/register"
+        android:layout_gravity="bottom|end"
+        />
+
 </LinearLayout>

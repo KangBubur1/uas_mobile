@@ -1,5 +1,6 @@
 package com.example.uas_mobile.Member
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,8 +15,10 @@ import com.example.uas_mobile.Adapter.AdapterMember
 import com.example.uas_mobile.Adapter.AdapterPeminjaman
 import com.example.uas_mobile.Admin.AdminNav
 import com.example.uas_mobile.AppConfig
+import com.example.uas_mobile.Peminjaman.SendDataPeminjaman
 import com.example.uas_mobile.R
 import com.example.uas_mobile.model.Member
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONObject
 
 class ViewDataMember : AppCompatActivity() {
@@ -24,11 +27,13 @@ class ViewDataMember : AppCompatActivity() {
     var memberList = ArrayList<Member>()
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.rv_data_member)
         recyclerView = findViewById(R.id.rvMember)
         recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+
         displayData()
 
     }
@@ -43,14 +48,14 @@ class ViewDataMember : AppCompatActivity() {
             for (i in 0..jsonArray.length()-1) {
                 val item = jsonArray.getJSONObject(i)
                 member = Member()
-                member.idMember      = item.getString("idMember")
-                member.username     = item.getString("username")
-                member.name      = item.getString("name")
-                member.password      = item.getString("password")
+                member.idMember         = item.getString("idMember")
+                member.username         = item.getString("username")
+                member.name             = item.getString("name")
+                member.password         = item.getString("password")
                 member.tempatLahir      = item.getString("tempatLahir")
-                member.tanggalLahir      = item.getString("tanggalLahir")
-                member.noTelepon      = item.getString("noTelepon")
-                member.status        = item.getString("status")
+                member.tanggalLahir     = item.getString("tanggalLahir")
+                member.noTelepon        = item.getString("noTelepon")
+                member.status           = item.getString("status")
                 memberList.add(member)
             }
             recyclerView.adapter = AdapterMember(this@ViewDataMember, memberList)
@@ -64,5 +69,7 @@ class ViewDataMember : AppCompatActivity() {
     fun peminjamBack(view: View) {
         val intent = Intent(this, AdminNav::class.java)
         startActivity(intent)
+        finish()
     }
+
 }

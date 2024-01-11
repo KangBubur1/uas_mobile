@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
@@ -29,7 +30,6 @@ class UpdateDataMember : AppCompatActivity() {
     private lateinit var tanggalLahirEditText   : EditText
     private lateinit var noTeleponEditText      : EditText
     private lateinit var buttonUpdate           : Button
-    private lateinit var buttonBack             : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_member)
@@ -61,13 +61,7 @@ class UpdateDataMember : AppCompatActivity() {
         tanggalLahirEditText = findViewById(R.id.tanggalLahirEditText)
         noTeleponEditText = findViewById(R.id.noTeleponEditText)
         buttonUpdate = findViewById<Button>(R.id.buttonUpdate)
-        buttonBack = findViewById<Button>(R.id.buttonBack)
-
-        buttonBack.setOnClickListener {
-            val intent = Intent(this@UpdateDataMember, ViewDataMember::class.java)
-            startActivity(intent)
-            finish()
-        }
+        
         updateData()
     }
     private fun updateData() {
@@ -109,5 +103,10 @@ class UpdateDataMember : AppCompatActivity() {
                 Volley.newRequestQueue(this).add(stringRequest)
             }
         }
+    }
+    fun backMember(){
+        val intent = Intent(this@UpdateDataMember, ViewDataMember::class.java)
+        startActivity(intent)
+        finish()
     }
 }

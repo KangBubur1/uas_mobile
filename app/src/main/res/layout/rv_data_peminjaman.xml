@@ -4,15 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey"
     android:orientation="vertical"
     tools:context=".Peminjaman.ViewDataPeminjaman">
+
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:onClick="backmenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="5dp">
+
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:layout_marginStart="50dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Data Peminjaman"
+            android:textAlignment="center" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPeminjaman"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="100dp">
+        android:layout_height="900dp"
+        android:layout_weight="1"></androidx.recyclerview.widget.RecyclerView>
 
-
-    </androidx.recyclerview.widget.RecyclerView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/black"
+        android:elevation="10dp"
+        app:pressedTranslationZ="12dp"
+        app:tint="@color/Primary" />
 </LinearLayout>

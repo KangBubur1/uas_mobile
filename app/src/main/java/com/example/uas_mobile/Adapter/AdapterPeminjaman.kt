@@ -44,7 +44,7 @@ class AdapterPeminjaman (var context: Context, private var pinjamlist: List<Pemi
                         val bundle = Bundle()
                         bundle.putString("kodePinjam", peminjaman.kodePinjam)
                         bundle.putString("tanggalPinjam", peminjaman.tanggalPinjam)
-                        bundle.putString("periodePinjam", peminjaman.periodePinjam)
+                        bundle.putString("tanggalPengembalian", peminjaman.tanggalPengembalian)
                         bundle.putString("kodeBuku", peminjaman.kodeBuku)
                         bundle.putString("idMember", peminjaman.idMember)
                         val intent = Intent(context, SendDataPeminjaman::class.java)
