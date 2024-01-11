@@ -16,7 +16,7 @@
         android:layout_height="match_parent">
 
         <ImageButton
-            android:id="@+id/flowmenu"
+            android:id="@+id/flowmenuMember"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -30,23 +30,23 @@
 
 
         <TextView
-            android:id="@+id/kodePinjam"
+            android:id="@+id/idMember"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:text="Kode Pinjam"
+            android:text="Kode Member"
             android:fontFamily="@font/poppins"
             android:textSize="25dp"
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/idMember"
+            android:id="@+id/namaMember"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="40dp"
-            android:text="ID Member"
+            android:text="Nama Member"
             android:fontFamily="@font/poppins"
             android:textSize="15dp"/>
 

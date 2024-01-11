@@ -37,6 +37,10 @@
         <activity android:name=".Buku.ViewBuku"></activity>
         <activity android:name=".Buku.SendDataBuku"></activity>
 
+
+        <activity android:name=".Member.ViewDataMember"></activity>
+        <activity android:name=".Member.UpdateDataMember"></activity>
+
         <activity android:name=".User.UserEditProfile"></activity>
 
 

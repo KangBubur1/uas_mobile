@@ -1,25 +1,15 @@
 package com.example.uas_mobile.User
 
-import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.EditText
-import android.widget.Toast
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.example.uas_mobile.AppConfig
-import com.example.uas_mobile.Peminjaman.ViewDataPeminjaman
 import com.example.uas_mobile.R
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
-import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Date
 import java.util.Locale
 class UserEditProfile : AppCompatActivity() {
     private lateinit var etName: EditText

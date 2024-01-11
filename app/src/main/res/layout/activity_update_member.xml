@@ -5,18 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Peminjaman.SendDataPeminjaman"
+    tools:context=".Member.UpdateDataMember"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
     android:layout_marginTop="16dp">
 
     <!-- Username -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/KodePinjamTextLayout"
+        android:id="@+id/idMemberUpdateTextLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:hint="Kode Pinjam"
+        android:hint="ID Member"
         app:hintTextColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/nameInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,32 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/kodePinjamEditText"
+            android:id="@+id/idMemberUpdateEdiText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:enabled="false"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="215dp"
+            tools:layout_editor_absoluteY="435dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Name -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/usernameTextLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:hint="Username"
+        app:layout_constraintBottom_toTopOf="@+id/passwordInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtField"
+        android:layout_marginTop="@dimen/_4sdp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/usernameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
@@ -37,11 +62,11 @@
 
     <!-- Name -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tanggalPinjamTextLayout"
+        android:id="@+id/nameTextLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:hint="Tanggal Pinjam"
+        android:hint="Name"
         app:layout_constraintBottom_toTopOf="@+id/passwordInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.39"
@@ -50,33 +75,7 @@
         android:layout_marginTop="@dimen/_4sdp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tanggalPinjamEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="false"
-            android:onClick="showDatePicker"
-            android:fontFamily="@font/poppins"
-            android:textColor="@color/black"
-            tools:layout_editor_absoluteX="215dp"
-            tools:layout_editor_absoluteY="435dp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!-- Name -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/periodePinjamTextLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:hint="Periode Pinjam"
-        app:layout_constraintBottom_toTopOf="@+id/passwordInputLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtField"
-        android:layout_marginTop="@dimen/_4sdp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/periodePinjamEditText"
+            android:id="@+id/nameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
@@ -87,11 +86,11 @@
 
     <!-- Place of Birth -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/kodeBukuTextLayout"
+        android:id="@+id/tempatLahirTextLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:hint="Kode Buku"
+        android:hint="@string/tempatLahir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +99,7 @@
         android:layout_marginTop="@dimen/_4sdp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/kodeBukuEditText"
+            android:id="@+id/tempatLahirEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -112,11 +111,13 @@
 
     <!-- Phone Number -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/idMemberTextLayout"
+        android:id="@+id/tanggalLahirTextLayour"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:hint="ID Member"
+        android:focusable="false"
+        android:onClick="showDatePicker"
+        android:hint="@string/tanggalLahir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,9 +125,33 @@
         android:layout_marginTop="@dimen/_4sdp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/idMemberEditText"
+            android:id="@+id/tanggalLahirEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="215dp"
+            tools:layout_editor_absoluteY="435dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/noTeleponTextLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:hint="@string/noTelepon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rePasswordInputLayout"
+        app:layout_constraintBottom_toTopOf="@+id/tanggalLahirInputLayout"
+        android:layout_marginTop="@dimen/_4sdp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/noTeleponEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
             android:fontFamily="@font/poppins"
             android:textColor="@color/black"
             tools:layout_editor_absoluteX="215dp"
@@ -140,20 +165,12 @@
         android:gravity="center_horizontal">
 
         <Button
-            android:id="@+id/buttonAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_new"
-            android:textSize="18sp"
-            android:layout_gravity="center" />
-
-        <Button
             android:id="@+id/buttonUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="save"
-            android:visibility="gone"
+
             android:textSize="18sp" />
 
         <Button

@@ -10,8 +10,8 @@
     <string name="password">Password</string>
     <string name="repassword">Re-Password</string>
     <string name="nama">Name</string>
-    <string name="tempatLahir">Tempat Lahir</string>
-    <string name="tanggalLahir">Tanggal Lahir</string>
+    <string name="tempatLahir">Birth Place</string>
+    <string name="tanggalLahir">Birth Data</string>
     <string name="noTelepon">No Telepon</string>
     <string name="btnLogin">Login</string>
     <string name="btnNext">Next</string>

@@ -16,59 +16,61 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.uas_mobile.AppConfig
+import com.example.uas_mobile.Member.UpdateDataMember
 import com.example.uas_mobile.Peminjaman.SendDataPeminjaman
 import com.example.uas_mobile.Peminjaman.ViewDataPeminjaman
 import com.example.uas_mobile.R
+import com.example.uas_mobile.model.Member
 import com.example.uas_mobile.model.Peminjaman
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.json.JSONException
 import org.json.JSONObject
 
-class AdapterPeminjaman (var context: Context, private var pinjamlist: List<Peminjaman>) : RecyclerView.Adapter<AdapterPeminjaman.ImageViewHolder>() {
+class AdapterMember (var context: Context, private var memberList: List<Member>) : RecyclerView.Adapter<AdapterMember.ImageViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.single_data_peminjaman, null)
+        val view = inflater.inflate(R.layout.single_data_member, null)
         return ImageViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
-        val peminjaman = pinjamlist[position]
-        holder.kodePinjam.text = pinjamlist[position].kodePinjam
-        holder.idMember.text = pinjamlist[position].idMember
+        val member= memberList[position]
+        holder.idMember.text = memberList[position].idMember
+        holder.name.text = memberList[position].name
         holder.flowmenu.setOnClickListener {
             val popupMenu = PopupMenu(context, holder.flowmenu)
-            popupMenu.inflate(R.menu.flow_menu_peminjaman)
+            popupMenu.inflate(R.menu.flow_menu_member)
             popupMenu.setOnMenuItemClickListener { menuItem: MenuItem ->
                 when (menuItem.itemId) {
                     R.id.edit_menu -> {
                         val bundle = Bundle()
-                        bundle.putString("kodePinjam", peminjaman.kodePinjam)
-                        bundle.putString("tanggalPinjam", peminjaman.tanggalPinjam)
-                        bundle.putString("periodePinjam", peminjaman.periodePinjam)
-                        bundle.putString("kodeBuku", peminjaman.kodeBuku)
-                        bundle.putString("idMember", peminjaman.idMember)
-                        val intent = Intent(context, SendDataPeminjaman::class.java)
-                        intent.putExtra("dataPeminjaman", bundle)
+                        bundle.putString("idMember", member.idMember)
+                        bundle.putString("username", member.username)
+                        bundle.putString("name", member.name)
+                        bundle.putString("tempatLahir", member.tempatLahir)
+                        bundle.putString("noTelepon", member.noTelepon)
+                        val intent = Intent(context, UpdateDataMember::class.java)
+                        intent.putExtra("dataMember", bundle)
                         context.startActivity(intent)
                     }
 
                     R.id.delete_menu -> {
                         MaterialAlertDialogBuilder(context).setTitle("Delete").setMessage("Yakin hapus?")
                             .setPositiveButton("Delete"){_,_->
-                                val url: String = AppConfig().IP_SERVER + "/PHP/deletePeminjaman.php"
+                                val url: String = AppConfig().IP_SERVER + "/PHP/deleteMember.php"
                                 val strReq = object : StringRequest(
                                     Method.POST,url, Response.Listener { response ->
-                                    try {
-                                        val jsonObj = JSONObject(response)
-                                        Toast.makeText(context, jsonObj.getString("message"), Toast.LENGTH_SHORT).show()
-                                        val intent = Intent(context, ViewDataPeminjaman::class.java)
-                                        context.startActivity(intent)
-                                    }
-                                    catch (e: JSONException) { e.printStackTrace() } },
+                                        try {
+                                            val jsonObj = JSONObject(response)
+                                            Toast.makeText(context, jsonObj.getString("message"), Toast.LENGTH_SHORT).show()
+                                            val intent = Intent(context, ViewDataPeminjaman::class.java)
+                                            context.startActivity(intent)
+                                        }
+                                        catch (e: JSONException) { e.printStackTrace() } },
                                     Response.ErrorListener {}) {
                                     override fun getParams(): HashMap<String,String>{
                                         val params = HashMap<String,String>()
-                                        params["kodePinjam"] = peminjaman.kodePinjam
+                                        params["idMember"] = member.idMember
                                         return params
                                     }
                                 }
@@ -87,19 +89,18 @@ class AdapterPeminjaman (var context: Context, private var pinjamlist: List<Pemi
     }
 
     override fun getItemCount(): Int {
-        return pinjamlist.size
+        return memberList.size
     }
 
     inner class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var kodePinjam   : TextView
-        var idMember     : TextView
-
-        var flowmenu     : ImageButton
+        var idMember        : TextView
+        var name            : TextView
+        var flowmenu        : ImageButton
 
         init {
-            kodePinjam  = itemView.findViewById(R.id.kodePinjam)
-            idMember    = itemView.findViewById(R.id.idMember)
-            flowmenu    = itemView.findViewById(R.id.flowmenu)
+            idMember  = itemView.findViewById(R.id.idMember)
+            name   = itemView.findViewById(R.id.namaMember)
+            flowmenu    = itemView.findViewById(R.id.flowmenuMember)
         }
     }
 }
