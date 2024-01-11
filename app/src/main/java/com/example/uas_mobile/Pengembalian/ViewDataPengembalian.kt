@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +14,9 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.uas_mobile.Adapter.AdapterPengembalian
+import com.example.uas_mobile.Admin.AdminNav
 import com.example.uas_mobile.AppConfig
+import com.example.uas_mobile.Peminjaman.ViewDataPeminjaman
 import com.example.uas_mobile.R
 import com.example.uas_mobile.model.Pengembalian
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -23,12 +26,19 @@ class ViewDataPengembalian : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     var kembaliList = ArrayList<Pengembalian>()
-
+    private lateinit var buttonBack         : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.rv_data_pengembalian)
         recyclerView = findViewById(R.id.rvPengembalian)
         recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        buttonBack = findViewById<ImageView>(R.id.btnBack)
+
+        buttonBack.setOnClickListener(){
+            val intent = Intent(this, AdminNav::class.java)
+            startActivity(intent)
+            finish()
+        }
         displayData()
 
 

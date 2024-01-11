@@ -12,6 +12,16 @@
         android:orientation="vertical"
         tools:context=".Buku.SendDataBuku">
 
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="5dp">
+
+        </ImageView>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -185,7 +195,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_upload"
+                android:src="@drawable/baseline_cloud_upload_24"
                 android:contentDescription="Select Image"
                 tools:ignore="ImageContrastCheck"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -229,7 +239,8 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonAdd"
@@ -238,42 +249,30 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/black"
-                android:textColor="@color/Primary"
                 android:fontFamily="@font/poppins"
                 android:text="@string/add_new"
+                android:textColor="@color/Primary"
                 android:textSize="@dimen/_15ssp" />
-            <Button
-                android:id="@+id/buttonEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/edit"
-                android:textSize="18sp"
-                style="?android:attr/buttonBarButtonStyle"/>
 
-            <!--        <Button-->
-            <!--            android:id="@+id/buttonDelete"-->
-            <!--            android:layout_width="wrap_content"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:text="@string/delete"-->
-            <!--            android:textSize="18sp"-->
-            <!--            style="?android:attr/buttonBarButtonStyle"/>-->
-
-            <Button
-                android:id="@+id/buttonBack"
-                android:layout_width="wrap_content"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSave"
+                style="@style/Widget.Material3.Button.IconButton.Filled"
+                android:layout_width="99dp"
                 android:layout_height="wrap_content"
-                android:text="@string/back"
-                android:textSize="18sp"
-                style="?android:attr/buttonBarButtonStyle" />
-            <Button
-                android:id="@+id/buttonDisplay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/display"
-                android:textSize="18sp"
-                style="?android:attr/buttonBarButtonStyle" />
-            <!-- Add other buttons here -->
-
+                android:layout_gravity="center"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/Primary"
+                android:fontFamily="@font/poppins"
+                android:visibility="gone"
+                android:text="Save"
+                android:textSize="@dimen/_15ssp"
+                android:layout_marginTop="10dp"/>
         </LinearLayout>
+        <ImageView
+            android:layout_width="259dp"
+            android:layout_height="278dp"
+            android:src="@drawable/register"
+            android:layout_gravity="bottom|end"
+            />
     </LinearLayout>
 </ScrollView>

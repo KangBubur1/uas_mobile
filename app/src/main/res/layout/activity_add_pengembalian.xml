@@ -7,6 +7,16 @@
     android:orientation="vertical"
     tools:context=".Pengembalian.SendDataPengembalian"
     android:background="#ECECEC">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="5dp">
+
+    </ImageView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -126,22 +136,18 @@
             android:text="@string/add_new"
             android:textSize="@dimen/_15ssp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonUpdate"
-            android:layout_width="wrap_content"
+            style="@style/Widget.Material3.Button.IconButton.Filled"
+            android:layout_width="99dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="save"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/Primary"
+            android:fontFamily="@font/poppins"
+            android:text="Save"
             android:visibility="gone"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/buttonBack"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/back"
-            android:textSize="18sp" />
+            android:textSize="@dimen/_15ssp" />
     </LinearLayout>
     <ImageView
         android:layout_width="259dp"

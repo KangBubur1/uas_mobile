@@ -1,6 +1,7 @@
 package com.example.uas_mobile.Peminjaman
 
 import android.content.Intent
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -85,6 +86,7 @@ class SendDataPeminjaman : AppCompatActivity() {
         etIdMember = findViewById(R.id.idMemberEditText)
         buttonAdd = findViewById<Button>(R.id.buttonAdd)
         buttonUpdate = findViewById<Button>(R.id.buttonUpdate)
+        btnBack = findViewById<ImageView>(R.id.btnBack)
 
         buttonAdd.setOnClickListener {
             performAdd()
@@ -93,11 +95,11 @@ class SendDataPeminjaman : AppCompatActivity() {
             finish()
         }
 
-//        buttonBack.setOnClickListener {
-//            val intent = Intent(this@SendDataPeminjaman, ViewDataPeminjaman::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+       btnBack.setOnClickListener {
+            val intent = Intent(this@SendDataPeminjaman, ViewDataPeminjaman::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         updateData()
 
@@ -139,6 +141,8 @@ class SendDataPeminjaman : AppCompatActivity() {
             etKodeBuku.setText(bundle.getString("kodeBuku"))
             etIdMember.setText(bundle.getString("idMember"))
 
+
+            etKodePinjam.isEnabled = false
             //visible edit button and hide save button
             buttonAdd.visibility        = View.GONE
             buttonUpdate.visibility     = View.VISIBLE
@@ -176,9 +180,4 @@ class SendDataPeminjaman : AppCompatActivity() {
         startActivity(intent)
         finish()
         }
-    fun backmenu(){
-        val intent = Intent(this, AdminNav::class.java)
-        startActivity(intent)
-        finish()
-    }
     }

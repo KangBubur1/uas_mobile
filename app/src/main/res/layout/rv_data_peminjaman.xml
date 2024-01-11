@@ -10,20 +10,19 @@
 
 
 
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="5dp">
+
+    </ImageView>
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="100dp">
-
-        <ImageView
-            android:id="@+id/btnBack"
-            android:onClick="backmenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="5dp">
-
-        </ImageView>
+        android:layout_height="100dp"
+        android:gravity="center">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,11 +40,15 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPeminjaman"
         android:layout_width="match_parent"
-        android:layout_height="900dp"
-        android:layout_weight="1"></androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAdd"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

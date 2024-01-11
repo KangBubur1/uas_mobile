@@ -6,24 +6,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Buku.ViewBuku">
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp">
+        <ImageView
+            android:id="@+id/btnBackInputBuku"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp">
 
+        </ImageView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="30dp"
             android:textColor="@color/black"
-            android:layout_marginStart="135dp"
             android:textStyle="bold"
+            android:layout_marginStart="100dp"
             android:fontFamily="@font/poppins_bold"
             android:text="Input Buku"
-
             android:textAlignment="center" />
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView

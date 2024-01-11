@@ -26,7 +26,7 @@ class AdapterHistory(private val bookList: List<DataKatalogBuku>): RecyclerView.
 
         if (book != null) {
             // Use binding to access views
-            holder.binding.rvJudul.text = "JudulBuku: ${book.judulBuku}"
+            holder.binding.rvJudul.text = book.judulBuku
             holder.binding.rvTanggalPinjam.text ="Tanggal Pinjam: ${book.tanggalPinjam}"
             holder.binding.rvTanggalKembali.text ="Tanggal Kembali: ${book.tanggalPengembalian}"
 

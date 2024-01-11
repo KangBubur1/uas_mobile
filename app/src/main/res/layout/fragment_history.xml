@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HistoryFragment">
+    tools:context=".HistoryFragment"
+    android:background="@color/grey">
 
     <FrameLayout
         android:id="@+id/container"
@@ -22,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:paddingStart="24dp"
+                android:textAlignment="center"
                 android:text="Booked Books"
                 android:fontFamily="@font/poppins"
                 android:textSize="28dp"

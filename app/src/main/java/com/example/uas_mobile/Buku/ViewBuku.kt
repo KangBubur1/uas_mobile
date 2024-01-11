@@ -1,8 +1,10 @@
 package com.example.uas_mobile.Buku
 
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,12 +24,17 @@ class ViewBuku : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     var productList = ArrayList<Product>()
     private lateinit var buttonInput: Button
-    private lateinit var buttonBack: Button
+    private lateinit var btnBack: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display)
 
+        btnBack = findViewById<ImageView>(R.id.btnBackInputBuku)
 
+        btnBack.setOnClickListener(){
+            val intent = Intent(this, AdminNav::class.java)
+            startActivity(intent)
+        }
 
 
         recyclerView = findViewById(R.id.rv)

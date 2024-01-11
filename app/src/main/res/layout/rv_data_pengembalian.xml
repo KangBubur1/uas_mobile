@@ -9,10 +9,19 @@
     tools:context=".Pengembalian.ViewDataPengembalian">
 
     <!-- Floating Action Button -->
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="5dp">
 
+    </ImageView>
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
@@ -20,7 +29,6 @@
             android:layout_gravity="center"
             android:textSize="30dp"
             android:textColor="@color/black"
-            android:layout_marginStart="75dp"
             android:textStyle="bold"
             android:fontFamily="@font/poppins_bold"
             android:text="Data Pengembalian"

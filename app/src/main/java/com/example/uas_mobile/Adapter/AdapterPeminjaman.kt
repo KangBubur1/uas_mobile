@@ -33,8 +33,8 @@ class AdapterPeminjaman (var context: Context, private var pinjamlist: List<Pemi
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val peminjaman = pinjamlist[position]
-        holder.kodePinjam.text = pinjamlist[position].kodePinjam
-        holder.idMember.text = pinjamlist[position].idMember
+        holder.kodePinjam.text  = "Kode Pinjam : ${pinjamlist[position].kodePinjam}"
+        holder.idMember.text    = "ID Member: ${pinjamlist[position].idMember}"
         holder.flowmenu.setOnClickListener {
             val popupMenu = PopupMenu(context, holder.flowmenu)
             popupMenu.inflate(R.menu.flow_menu_peminjaman)

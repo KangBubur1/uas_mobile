@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +23,7 @@ class ViewDataPeminjaman : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     var pinjamList = ArrayList<Peminjaman>()
-
+    private lateinit var btnBack                : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +37,13 @@ class ViewDataPeminjaman : AppCompatActivity() {
         fabAdd.setOnClickListener {
             val intent = Intent(this, SendDataPeminjaman::class.java)
             startActivity(intent)
+        }
+
+        btnBack = findViewById<ImageView>(R.id.btnBack)
+        btnBack.setOnClickListener {
+            val intent = Intent(this@ViewDataPeminjaman, AdminNav::class.java)
+            startActivity(intent)
+            finish()
         }
 
     }
@@ -64,10 +72,6 @@ class ViewDataPeminjaman : AppCompatActivity() {
             }
         ){}
         Volley.newRequestQueue(this).add(stringRequest)
-    }
-    fun peminjamBack(view: View) {
-        val intent = Intent(this, AdminNav::class.java)
-        startActivity(intent)
     }
 
 }

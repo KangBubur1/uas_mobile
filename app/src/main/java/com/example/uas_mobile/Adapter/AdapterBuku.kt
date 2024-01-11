@@ -38,13 +38,9 @@ class AdapterBuku(var context: Context, private var productList: List<Product>) 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val product = productList[position]
         Picasso.get().load(product.gambarBuku).into(holder.gambarBuku)
-        holder.kodeBuku.text = productList[position].kodeBuku
+        holder.kodeBuku.text =  "Kode Buku: ${productList[position].kodeBuku}"
         holder.judulBuku.text = productList[position].judulBuku
-        holder.pengarang.text = productList[position].pengarang
-        holder.penerbit.text = productList[position].penerbit
-        holder.tempatTerbit.text = productList[position].tempatTerbit
-        holder.jumlahSalinan.text = productList[position].jumlahSalinan
-        holder.kodeKategori.text = productList[position].kodeKategori
+        holder.pengarang.text = "Pengarang: ${productList[position].pengarang}"
         holder.flowmenu.setOnClickListener {
             val popupMenu = PopupMenu(context, holder.flowmenu)
             popupMenu.inflate(R.menu.flow_menu_buku)
@@ -108,21 +104,13 @@ class AdapterBuku(var context: Context, private var productList: List<Product>) 
         var kodeBuku     : TextView
         var judulBuku     : TextView
         var pengarang     : TextView
-        var penerbit     : TextView
-        var tempatTerbit     : TextView
-        var jumlahSalinan     : TextView
         var gambarBuku   : ImageView
-        var kodeKategori   : TextView
         var flowmenu    : ImageButton
         init {
-            kodeBuku     = itemView.findViewById(R.id.txt_kodebuku)
+            kodeBuku     = itemView.findViewById(R.id.txt_kodeBuku)
             judulBuku     = itemView.findViewById(R.id.txt_judulBuku)
             pengarang     = itemView.findViewById(R.id.txt_pengarang)
-            penerbit    = itemView.findViewById(R.id.txt_penerbit)
-            tempatTerbit    = itemView.findViewById(R.id.txt_tempatterbit)
-            jumlahSalinan   = itemView.findViewById(R.id.txt_jumlahsalinan)
             gambarBuku   = itemView.findViewById(R.id.imageProduct)
-            kodeKategori   = itemView.findViewById(R.id.txt_kodeKategori)
             flowmenu    = itemView.findViewById(R.id.flowmenu)
         }
     }

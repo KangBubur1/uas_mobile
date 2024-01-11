@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
@@ -31,7 +32,7 @@ class SendDataPengembalian : AppCompatActivity() {
 
     private lateinit var buttonAdd          : Button
     private lateinit var buttonUpdate         : Button
-    private lateinit var buttonBack         : Button
+    private lateinit var buttonBack         : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_pengembalian)
@@ -61,7 +62,7 @@ class SendDataPengembalian : AppCompatActivity() {
         etKodePinjam = findViewById(R.id.kodePinjamEditText)
         buttonAdd = findViewById<Button>(R.id.buttonAdd)
         buttonUpdate = findViewById<Button>(R.id.buttonUpdate)
-        buttonBack = findViewById<Button>(R.id.buttonBack)
+        buttonBack = findViewById<ImageView>(R.id.btnBack)
 
         buttonAdd.setOnClickListener {
             performAdd()
@@ -109,7 +110,7 @@ class SendDataPengembalian : AppCompatActivity() {
         val bundle = intent.getBundleExtra("dataPengembalian")
         if (bundle != null) {
             etKodePengembalian.setText(bundle.getString("kodeKembali"))
-            etTanggalPengembalian.setText(bundle.getString("tanggalKebali"))
+            etTanggalPengembalian.setText(bundle.getString("tanggalKembali"))
             etKodePinjam.setText(bundle.getString("kodePinjam"))
 
             //visible edit button and hide save button
