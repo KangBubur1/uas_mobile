@@ -32,5 +32,6 @@
     sollicitudin sapien consectetur ac. Sed vestibulum laoreet lacus ac bibendum. Integer fermentum lectus
         non arcu malesuada fermentum. Proin volutpat tincidunt efficitur. Nunc</string>
     <string name="btnUpdate">"Update "</string>
+    <string name="last_seen">Last Seen</string>
 
 </resources>

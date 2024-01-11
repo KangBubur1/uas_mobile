@@ -9,7 +9,7 @@ import com.example.uas_mobile.AppConfig
 import com.example.uas_mobile.DataBuku.DataKatalogBuku
 import com.example.uas_mobile.R
 import com.example.uas_mobile.databinding.RvHistoryBinding
-import com.example.uas_mobile.databinding.RvItemListBukuBinding
+
 
 class AdapterHistory(private val bookList: List<DataKatalogBuku>): RecyclerView.Adapter<AdapterHistory.BookViewHolder>() {
 

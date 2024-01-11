@@ -14,19 +14,21 @@
         android:layout_marginEnd="10dp"
         android:padding="2dp">
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="80dp"
             android:layout_height="130dp"
             android:padding="2dp"
             android:layout_marginEnd="2dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="@color/black"
+            android:elevation="4dp">
 
             <ImageView
                 android:id="@+id/rv_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY" />
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
             android:layout_width="0dp"
