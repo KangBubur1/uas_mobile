@@ -7,5 +7,6 @@ data class DataKatalogBuku(
     var kategori: String,
     var gambarBuku: String,
     var tanggalPinjam: String,
-    var tanggalPengembalian: String
+    var tanggalPengembalian: String,
+    var statusPeminjaman: String
 )

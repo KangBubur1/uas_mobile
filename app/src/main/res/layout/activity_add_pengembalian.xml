@@ -94,7 +94,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:hint="Kode Buku"
+        android:hint="Kode Pinjam"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"

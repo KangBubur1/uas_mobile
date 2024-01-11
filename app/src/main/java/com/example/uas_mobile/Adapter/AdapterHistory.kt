@@ -3,6 +3,7 @@ package com.example.uas_mobile.Adapter
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.uas_mobile.AppConfig
@@ -24,11 +25,13 @@ class AdapterHistory(private val bookList: List<DataKatalogBuku>): RecyclerView.
         Log.d("AdapterHistory", "onBindViewHolder: Position $position")
         val book = bookList?.get(position)
 
+        val curBook = bookList[position]
         if (book != null) {
             // Use binding to access views
             holder.binding.rvJudul.text = book.judulBuku
-            holder.binding.rvTanggalPinjam.text ="Tanggal Pinjam: ${book.tanggalPinjam}"
-            holder.binding.rvTanggalKembali.text ="Tanggal Kembali: ${book.tanggalPengembalian}"
+            holder.binding.rvTanggalPinjam.text ="Borrowed Date: ${book.tanggalPinjam}"
+            holder.binding.rvTanggalKembali.text ="Please Return Book At: ${book.tanggalPengembalian}"
+            holder.binding.rvStatusPeminjaman.text = book.statusPeminjaman
 
 
             val imageUrl = baseUrl + book.gambarBuku
@@ -45,6 +48,13 @@ class AdapterHistory(private val bookList: List<DataKatalogBuku>): RecyclerView.
                 Glide.with(holder.itemView.context)
                     .load(R.drawable.batman)
                     .into(holder.binding.rvImage)
+            }
+
+            if (curBook.statusPeminjaman.equals("returned", ignoreCase = true)) {
+                holder.binding.rvStatusPeminjaman.setBackgroundResource(R.drawable.green_rounded_background)
+                holder.binding.rvStatusPeminjaman.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.Primary))
+            } else {
+                holder.binding.rvStatusPeminjaman.setBackgroundResource(R.drawable.red_rounded_background)
             }
 
             Log.d("AdapterKatalogBuku", "Binding item at position $position - ${book.judulBuku}")

@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uas_mobile.Adapter.AdapterHistory
@@ -95,25 +97,25 @@ class HistoryFragment : Fragment() {
     }
 
     private fun setupRecyclerView(books: List<DataKatalogBuku>) {
-        bookList.addAll(books)
-        recyclerView?.let {
-            try {
-                val adapter = AdapterHistory(bookList)
-                it.layoutManager = LinearLayoutManager(requireContext())
-                it.adapter = adapter
-            }catch (e: Exception) {
-                Log.e("CatalogFragment", "Error setting up RecyclerView adapter", e)
+        try {
+            val adapter = AdapterHistory(books) // Pass the fetched data to the adapter
+            recyclerView?.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView?.adapter = adapter
+
+            for (book in books) {
+                val imageUrl = AppConfig().IP_SERVER + "/PHP/${book.gambarBuku}"
+                Log.d("Book", "Judul Buku: ${book.judulBuku}")
+                Log.d("Book", "Tanggal Pinjam: ${book.tanggalPinjam}")
+                Log.d("Book", "Tanggal Kembali: ${book.tanggalPengembalian}")
+                Log.d("Book", "Gambar Buku: $imageUrl")
+                Log.d("Book", "Status Buku: ${book.statusPeminjaman}")
+
             }
-
-        }
-
-        for (book in bookList) {
-            val imageUrl = AppConfig().IP_SERVER + "/PHP/${book.gambarBuku}"  // Sesuaikan dengan nama field gambarByteArray
-            Log.d("Book", "Judul Buku: ${book.judulBuku}")
-            Log.d("Book", "Tanggal Pinjam: ${book.tanggalPinjam}")
-            Log.d("Book", "Tanggal Kembali: ${book.tanggalPengembalian}")
-            Log.d("Book", "Gambar Buku: $imageUrl")
+        } catch (e: Exception) {
+            Log.e("CatalogFragment", "Error setting up RecyclerView adapter", e)
         }
     }
+
+
 
 }
