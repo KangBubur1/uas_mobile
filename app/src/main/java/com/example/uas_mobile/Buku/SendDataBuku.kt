@@ -17,6 +17,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.uas_mobile.Admin.AdminNav
 import com.example.uas_mobile.AppConfig
 import com.example.uas_mobile.R
 import java.io.ByteArrayOutputStream
@@ -60,8 +61,9 @@ class SendDataBuku : AppCompatActivity() {
 
         buttonAdd = findViewById<Button>(R.id.buttonAdd)
         buttonEdit = findViewById<Button>(R.id.buttonEdit)
-        buttonDelete = findViewById<Button>(R.id.buttonDelete)
+//        buttonDelete = findViewById<Button>(R.id.buttonDelete)
         buttonDisplay = findViewById<Button>(R.id.buttonDisplay)
+        buttonBack = findViewById<Button>(R.id.buttonBack)
 
         imagePick()
         buttonAdd.setOnClickListener {
@@ -71,6 +73,10 @@ class SendDataBuku : AppCompatActivity() {
 
         buttonDisplay.setOnClickListener {
             displayData()
+        }
+        buttonBack.setOnClickListener {
+            val intent = Intent(this@SendDataBuku, ViewBuku::class.java)
+            startActivity(intent)
         }
         updatedata()
     }

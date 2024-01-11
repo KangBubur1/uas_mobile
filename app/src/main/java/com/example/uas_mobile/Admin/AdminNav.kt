@@ -11,6 +11,7 @@ import com.example.uas_mobile.Buku.ViewBuku
 import com.example.uas_mobile.MainActivity
 import com.example.uas_mobile.Peminjaman.AdminPeminjam
 import com.example.uas_mobile.Peminjaman.ViewDataPeminjaman
+import com.example.uas_mobile.Pengembalian.ViewDataPengembalian
 import com.example.uas_mobile.R
 
 class AdminNav : AppCompatActivity() {
@@ -35,6 +36,11 @@ class AdminNav : AppCompatActivity() {
 
     fun peminjamanBuku (view: View) {
         val intent = Intent(this, ViewDataPeminjaman::class.java)
+        startActivity(intent)
+
+    }
+    fun pengembalianBuku (view: View) {
+        val intent = Intent(this, ViewDataPengembalian::class.java)
         startActivity(intent)
 
     }

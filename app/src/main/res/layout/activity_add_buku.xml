@@ -1,178 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Buku.SendDataBuku">
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textViewKodeBuku"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Kode Buku">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextKodeBuku"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="text"
-            android:textSize="18sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textViewJudulBuku"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Judul Buku">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextJudulBuku"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="text"
-            android:textSize="18sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textViewPengarang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Pengarang">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextPengarang"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="text"
-            android:textSize="18sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textViewPenerbit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Penerbit">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextPenerbit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="text"
-            android:textSize="18sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textViewTempatTerbit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Tempat Terbit">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextTempatTerbit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="text"
-            android:textSize="18sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textViewJumlahSalinan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Jumlah Salinan">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextJumlahSalinan"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="number"
-            android:textSize="18sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textViewGambarBuku"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Gambar Buku">
-
-        <ImageView
-            android:id="@+id/imageButtonGambarBuku"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_upload"
-            android:contentDescription="Select Image"
-            tools:ignore="ImageContrastCheck"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textViewKodeKategori"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Kode Kategori">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextKodeKategori"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="text"
-            android:textSize="18sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
+    android:background="#ECECEC">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
+        android:orientation="vertical"
+        tools:context=".Buku.SendDataBuku">
 
-        <!-- Sisipkan tombol yang sesuai dengan pola sebelumnya -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Input Buku"
+            android:textAlignment="center" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textViewKodeBuku"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Kode Buku"
+            app:hintTextColor="@color/Primary"
+            app:layout_constraintBottom_toTopOf="@+id/nameInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextKodeBuku"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                tools:layout_editor_absoluteX="215dp"
+                tools:layout_editor_absoluteY="435dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textViewJudulBuku"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Judul Buku"
+            app:layout_constraintBottom_toTopOf="@+id/passwordInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtField"
+            android:layout_marginTop="@dimen/_4sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextJudulBuku"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                tools:layout_editor_absoluteX="215dp"
+                tools:layout_editor_absoluteY="435dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textViewPengarang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Pengarang"
+            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtField"
+            android:layout_marginTop="@dimen/_4sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPengarang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                tools:layout_editor_absoluteX="215dp"
+                tools:layout_editor_absoluteY="435dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textViewPenerbit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Penerbit"
+            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtField"
+            android:layout_marginTop="@dimen/_4sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPenerbit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                tools:layout_editor_absoluteX="215dp"
+                tools:layout_editor_absoluteY="435dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textViewTempatTerbit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Tempat Terbit"
+            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtField"
+            android:layout_marginTop="@dimen/_4sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextTempatTerbit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                tools:layout_editor_absoluteX="215dp"
+                tools:layout_editor_absoluteY="435dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textViewJumlahSalinan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Jumlah Salinan"
+            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtField"
+            android:layout_marginTop="@dimen/_4sdp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextJumlahSalinan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                tools:layout_editor_absoluteX="215dp"
+                tools:layout_editor_absoluteY="435dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textViewGambarBuku"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Gambar Buku"
+            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtField"
+            android:layout_marginTop="@dimen/_4sdp">
+
+            <ImageView
+                android:id="@+id/imageButtonGambarBuku"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_upload"
+                android:contentDescription="Select Image"
+                tools:ignore="ImageContrastCheck"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textViewKodeKategori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Kode Kategori"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rePasswordInputLayout"
+            app:layout_constraintBottom_toTopOf="@+id/tanggalLahirInputLayout"
+            android:layout_marginTop="@dimen/_4sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextKodeKategori"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                android:inputType="text"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="215dp"
+                tools:layout_editor_absoluteY="435dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Your other views go here -->
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <!-- Sisipkan tombol yang sesuai dengan pola sebelumnya -->
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonAdd"
+                style="@style/Widget.Material3.Button.IconButton.Filled"
+                android:layout_width="99dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/Primary"
+                android:fontFamily="@font/poppins"
+                android:text="@string/add_new"
+                android:textSize="@dimen/_15ssp" />
+            <Button
+                android:id="@+id/buttonEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit"
+                android:textSize="18sp"
+                style="?android:attr/buttonBarButtonStyle"/>
+
+            <!--        <Button-->
+            <!--            android:id="@+id/buttonDelete"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="@string/delete"-->
+            <!--            android:textSize="18sp"-->
+            <!--            style="?android:attr/buttonBarButtonStyle"/>-->
+
+            <Button
+                android:id="@+id/buttonBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back"
+                android:textSize="18sp"
+                style="?android:attr/buttonBarButtonStyle" />
+            <Button
+                android:id="@+id/buttonDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/display"
+                android:textSize="18sp"
+                style="?android:attr/buttonBarButtonStyle" />
+            <!-- Add other buttons here -->
+
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-
-        <Button
-            android:id="@+id/buttonAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_new"
-            android:textSize="18sp"
-            android:layout_gravity="right" />
-
-        <Button
-            android:id="@+id/buttonEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/edit"
-            android:textSize="18sp"
-            style="?android:attr/buttonBarButtonStyle"/>
-
-        <Button
-            android:id="@+id/buttonDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/delete"
-            android:textSize="18sp"
-            style="?android:attr/buttonBarButtonStyle"/>
-
-        <Button
-            android:id="@+id/buttonBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/back"
-            android:textSize="18sp"
-            style="?android:attr/buttonBarButtonStyle" />
-        <Button
-            android:id="@+id/buttonDisplay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/display"
-            android:textSize="18sp"
-            style="?android:attr/buttonBarButtonStyle" />
-    </LinearLayout>
-</LinearLayout>
+</ScrollView>

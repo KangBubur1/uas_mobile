@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECECEC"
     android:orientation="vertical"
-    tools:context=".Buku.ViewBuku">
+    tools:context=".Pengembalian.ViewDataPengembalian">
+
+    <!-- Floating Action Button -->
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="100dp">
@@ -16,21 +20,19 @@
             android:layout_gravity="center"
             android:textSize="30dp"
             android:textColor="@color/black"
-            android:layout_marginStart="135dp"
+            android:layout_marginStart="75dp"
             android:textStyle="bold"
             android:fontFamily="@font/poppins_bold"
-            android:text="Input Buku"
-
+            android:text="Data Pengembalian"
             android:textAlignment="center" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPengembalian"
         android:layout_width="match_parent"
         android:layout_height="900dp"
-        android:layout_weight="1"
-        android:id="@+id/rv" >
+        android:layout_weight="1">
 
     </androidx.recyclerview.widget.RecyclerView>
 

@@ -33,6 +33,8 @@
         <activity android:name=".Peminjaman.ViewDataPeminjaman"></activity>
         <activity android:name=".Peminjaman.SendDataPeminjaman"></activity>
 
+        <activity android:name=".Pengembalian.ViewDataPengembalian"></activity>
+        <activity android:name=".Pengembalian.SendDataPengembalian"></activity>
 
         <activity android:name=".Buku.ViewBuku"></activity>
         <activity android:name=".Buku.SendDataBuku"></activity>
