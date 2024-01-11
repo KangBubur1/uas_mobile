@@ -1,15 +1,13 @@
 package com.example.uas_mobile.Admin
 
-import LoginFragment
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import com.example.uas_mobile.Buku.AdminBuku
 import com.example.uas_mobile.Buku.ViewBuku
 import com.example.uas_mobile.MainActivity
-import com.example.uas_mobile.Peminjaman.AdminPeminjam
+import com.example.uas_mobile.Member.ViewDataMember
 import com.example.uas_mobile.Peminjaman.ViewDataPeminjaman
 import com.example.uas_mobile.Pengembalian.ViewDataPengembalian
 import com.example.uas_mobile.R
@@ -41,6 +39,12 @@ class AdminNav : AppCompatActivity() {
     }
     fun pengembalianBuku (view: View) {
         val intent = Intent(this, ViewDataPengembalian::class.java)
+        startActivity(intent)
+
+    }
+
+    fun member (view: View) {
+        val intent = Intent(this, ViewDataMember::class.java)
         startActivity(intent)
 
     }

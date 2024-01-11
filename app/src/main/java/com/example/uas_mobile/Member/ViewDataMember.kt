@@ -1,4 +1,4 @@
-package com.example.uas_mobile.Peminjaman
+package com.example.uas_mobile.Member
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,46 +10,50 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.uas_mobile.Adapter.AdapterMember
 import com.example.uas_mobile.Adapter.AdapterPeminjaman
 import com.example.uas_mobile.Admin.AdminNav
 import com.example.uas_mobile.AppConfig
 import com.example.uas_mobile.R
-import com.example.uas_mobile.model.Peminjaman
+import com.example.uas_mobile.model.Member
 import org.json.JSONObject
 
-class ViewDataPeminjaman : AppCompatActivity() {
+class ViewDataMember : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
-    var pinjamList = ArrayList<Peminjaman>()
+    var memberList = ArrayList<Member>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.rv_data_peminjaman)
-        recyclerView = findViewById(R.id.rvPeminjaman)
+        setContentView(R.layout.rv_data_member)
+        recyclerView = findViewById(R.id.rvMember)
         recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         displayData()
 
     }
     private fun displayData() {
-        val url: String = AppConfig().IP_SERVER + "/PHP/viewDataPeminjaman.php"
-        val stringRequest = object : StringRequest(Method.GET,url, Response.Listener { response ->
-            pinjamList.clear()
+        val url: String = AppConfig().IP_SERVER + "/PHP/viewMember.php"
+        val stringRequest = object : StringRequest(Method.POST,url, Response.Listener { response ->
+            memberList.clear()
             val jsonObj = JSONObject(response)
             val jsonArray = jsonObj.getJSONArray("data")
-            var peminjaman: Peminjaman
-            pinjamList.clear()
+            var member: Member
+            memberList.clear()
             for (i in 0..jsonArray.length()-1) {
                 val item = jsonArray.getJSONObject(i)
-                peminjaman = Peminjaman()
-                peminjaman.kodePinjam       = item.getString("kodePinjam")
-                peminjaman.tanggalPinjam    = item.getString("tanggalPinjam")
-                peminjaman.periodePinjam    = item.getString("periodePinjam")
-                peminjaman.kodeBuku         = item.getString("kodeBuku")
-                peminjaman.idMember         = item.getString("idMember")
-                pinjamList.add(peminjaman)
+                member = Member()
+                member.idMember      = item.getString("idMember")
+                member.username     = item.getString("username")
+                member.name      = item.getString("name")
+                member.password      = item.getString("password")
+                member.tempatLahir      = item.getString("tempatLahir")
+                member.tanggalLahir      = item.getString("tanggalLahir")
+                member.noTelepon      = item.getString("noTelepon")
+                member.status        = item.getString("status")
+                memberList.add(member)
             }
-            recyclerView.adapter = AdapterPeminjaman(this@ViewDataPeminjaman, pinjamList)
+            recyclerView.adapter = AdapterMember(this@ViewDataMember, memberList)
         },
             Response.ErrorListener { error->
                 Toast.makeText(this,"Gagal Terhubung",Toast.LENGTH_SHORT).show()

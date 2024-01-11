@@ -44,6 +44,14 @@ class HomeActivity : AppCompatActivity() {
 
     private fun loadFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
+
+        transaction.setCustomAnimations(
+            R.anim.slide_in_right,  // animasi masuk
+            R.anim.slide_out_left, // animasi keluar
+            R.anim.slide_in_right,  // animasi masuk
+            R.anim.slide_out_left // animasi keluar
+        )
+
         transaction.replace(R.id.container, fragment)
         transaction.commit()
     }
