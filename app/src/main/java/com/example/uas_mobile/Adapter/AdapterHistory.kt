@@ -30,7 +30,6 @@ class AdapterHistory(private val bookList: List<DataKatalogBuku>): RecyclerView.
             // Use binding to access views
             holder.binding.rvJudul.text = book.judulBuku
             holder.binding.rvTanggalPinjam.text ="Borrowed Date: ${book.tanggalPinjam}"
-            holder.binding.rvTanggalKembali.text ="Please Return Book At: ${book.tanggalPengembalian}"
             holder.binding.rvStatusPeminjaman.text = book.statusPeminjaman
 
 
@@ -53,8 +52,10 @@ class AdapterHistory(private val bookList: List<DataKatalogBuku>): RecyclerView.
             if (curBook.statusPeminjaman.equals("returned", ignoreCase = true)) {
                 holder.binding.rvStatusPeminjaman.setBackgroundResource(R.drawable.green_rounded_background)
                 holder.binding.rvStatusPeminjaman.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.Primary))
+                holder.binding.rvTanggalKembali.text = "Book Return Date: ${curBook.tanggalPengembalian}"
             } else {
                 holder.binding.rvStatusPeminjaman.setBackgroundResource(R.drawable.red_rounded_background)
+                holder.binding.rvTanggalKembali.text = "Please Return Book At: ${curBook.tanggalPengembalian}"
             }
 
             Log.d("AdapterKatalogBuku", "Binding item at position $position - ${book.judulBuku}")
