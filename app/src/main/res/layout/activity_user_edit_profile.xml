@@ -175,12 +175,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRegistrasi"
+            android:id="@+id/btnUpdate"
             android:layout_width="@dimen/_120sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_8sdp"
             android:fontFamily="@font/poppins_bold"
-            android:hint="@string/btnRegistrasi"
+            android:hint="@string/btnUpdate"
             android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

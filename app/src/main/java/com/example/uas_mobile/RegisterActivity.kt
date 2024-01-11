@@ -100,7 +100,7 @@ class RegisterActivity: AppCompatActivity() {
             Response.Listener { response ->
                 Toast.makeText(this, response, Toast.LENGTH_SHORT).show()
                 if (response == "Success") {
-                    val intent = Intent(this, LoginFragment::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 }

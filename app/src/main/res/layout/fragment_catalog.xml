@@ -3,19 +3,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CatalogFragment"
     android:background="#ececec">
+
 
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="8dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:paddingStart="24dp"
+                android:text="Catalog Books"
+                android:fontFamily="@font/poppins"
+                android:textSize="28dp"
+                android:textStyle="bold"
+                />
+        </androidx.cardview.widget.CardView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RV_Katalog"
-        android:layout_marginTop="12dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RV_Katalog"
+            android:layout_width="match_parent"
+            android:layout_height="900dp"
+            android:layout_marginTop="96dp" />
+    </FrameLayout>
+
 
 </FrameLayout>

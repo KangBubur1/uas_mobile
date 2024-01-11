@@ -8,12 +8,17 @@
     tools:context=".SingleItemKatalogBuku"
     android:background="#ececec"
     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/glass_background">
     <androidx.cardview.widget.CardView
         android:layout_width="170dp"
         android:layout_height="250dp"
         android:padding="2dp"
         android:layout_marginTop="24dp"
-        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="24dp"
         app:cardCornerRadius="12dp">
 
@@ -23,7 +28,7 @@
             android:layout_height="match_parent"
             android:scaleType="fitXY"/>
     </androidx.cardview.widget.CardView>
-
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/secondRow"
         android:layout_width="match_parent"
@@ -79,17 +84,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_weight="1"
         >
-        <com.codesgood.views.JustifiedTextView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/poppins"
-            android:textSize="12sp"
-            android:text="@string/lorem"/>
-
+            android:layout_height="match_parent">
+            <com.codesgood.views.JustifiedTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins"
+                android:textSize="12sp"
+                android:text="@string/lorem"/>
+        </ScrollView>
     </LinearLayout>
 
 
@@ -97,13 +105,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="120dp"
+        android:layout_marginTop="24dp"
         >
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBooking"
             android:layout_width="@dimen/_120sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="@dimen/_8sdp"
             android:fontFamily="@font/poppins_bold"
             android:hint="@string/btnPinjam"
@@ -119,7 +128,7 @@
             android:layout_width="@dimen/_120sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="32dp"
             android:fontFamily="@font/poppins_bold"
             android:hint="@string/btnRead"
             android:textColorHint="@color/black" />

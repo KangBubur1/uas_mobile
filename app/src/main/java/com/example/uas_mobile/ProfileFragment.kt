@@ -35,12 +35,15 @@ class ProfileFragment : Fragment() {
 
         //Name
         tvName = view.findViewById(R.id.txtname)
-        
-        // Ambil data user login
-        val (username, _, name) = getLoggedinUserData()
-        // Display data
-        tvName.text = "$name"
+
+        updateUIPreferences()
         return view
+    }
+
+    private fun updateUIPreferences() {
+        val sharedPreferences = requireContext().getSharedPreferences("loginPref",0)
+        val name = sharedPreferences.getString("name", "") ?: ""
+        tvName.text = name
     }
 
     private fun getLoggedinUserData(): Triple<String, String, String> {

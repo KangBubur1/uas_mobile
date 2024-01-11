@@ -27,6 +27,7 @@ class HomeActivity : AppCompatActivity() {
                 }
                 R.id.bottom_catalog -> {
                     loadFragment(CatalogFragment())
+                    menuItem.isChecked = true
                     true
                 }
                 R.id.bottom_history -> {
@@ -42,7 +43,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadFragment(fragment: Fragment) {
+     fun loadFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
 
         transaction.setCustomAnimations(

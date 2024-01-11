@@ -52,6 +52,13 @@ class HomeFragment : Fragment() {
         // Set the text of todayDateTextView
         todayDateTextView.text = currentDate
 
+        val btnShowMore = view.findViewById<TextView>(R.id.showMore)
+        btnShowMore.setOnClickListener {
+            val homeActivity = activity as? HomeActivity
+            homeActivity?.loadFragment(CatalogFragment())
+
+        }
+
         return view
 
 

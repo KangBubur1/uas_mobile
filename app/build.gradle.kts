@@ -104,7 +104,7 @@ dependencies {
     // Justify text
     implementation ("com.codesgood:justifiedtextview:1.1.0")
 
-    // Blurry view
+    implementation ("com.google.code.gson:gson:2.8.8")
 
 
 

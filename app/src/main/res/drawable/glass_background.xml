@@ -1,0 +1,23 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/transparent" />
+    <item>
+        <shape android:shape="rectangle">
+            <corners
+                android:topLeftRadius="0dp"
+                android:topRightRadius="0dp"
+                android:bottomLeftRadius="24dp"
+                android:bottomRightRadius="24dp" />
+            <solid android:color="#4573A16C" /> <!-- Warna dengan alpha tinggi -->
+        </shape>
+    </item>
+    <item android:bottom="5dp">
+        <shape android:shape="rectangle">
+            <corners
+                android:topLeftRadius="0dp"
+                android:topRightRadius="0dp"
+                android:bottomLeftRadius="24dp"
+                android:bottomRightRadius="24dp" />
+            <solid android:color="#4573A16C" /> <!-- Warna dengan alpha tinggi -->
+        </shape>
+    </item>
+</layer-list>

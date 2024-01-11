@@ -219,29 +219,5 @@ class SingleItemKatalogBuku : Fragment() {
         return  "P${System.currentTimeMillis()}"
     }
 
-    private fun showNotification(title: String, content: String) {
-        val notificationManager =
-            requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        // Notification Channel is required for Android Oreo and above
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                "default",
-                "Booking Channel",
-                NotificationManager.IMPORTANCE_DEFAULT
-            )
-            notificationManager.createNotificationChannel(channel)
-        }
-
-        // Create a notification
-        val builder = NotificationCompat.Builder(requireContext(), "default")
-
-            .setContentTitle(title)
-            .setContentText(content)
-
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-
-        // Show the notification
-        notificationManager.notify(1, builder.build())
-    }
 }
