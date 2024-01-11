@@ -24,11 +24,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:paddingStart="24dp"
                 android:text="Catalog Books"
                 android:fontFamily="@font/poppins"
                 android:textSize="28dp"
                 android:textStyle="bold"
+                android:textAlignment="center"
                 />
         </androidx.cardview.widget.CardView>
 

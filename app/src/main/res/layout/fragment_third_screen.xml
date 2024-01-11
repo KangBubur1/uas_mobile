@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screen.FirstScreen"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/grey">
 
     <TextView
         android:id="@+id/fsQuotes"
@@ -65,7 +66,8 @@
             app:outer_background_height="60dp"
             app:outer_background_tint="@color/white"
             app:trail_background_tint="@color/Primary"
-            app:trail_enabled="true" />
+            app:trail_enabled="true"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

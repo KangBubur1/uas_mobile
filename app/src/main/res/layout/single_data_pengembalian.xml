@@ -39,7 +39,8 @@
             android:layout_marginTop="10dp"
             android:text="Kode Pengembalian"
             android:fontFamily="@font/poppins"
-            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
             android:textStyle="bold"/>
 
         <TextView
@@ -49,8 +50,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="40dp"
             android:text="TGL Pengembalian"
+            android:textColor="@color/black"
             android:fontFamily="@font/poppins"
-            android:textSize="15dp"/>
+            android:textSize="16dp"/>
 
     </RelativeLayout>
 

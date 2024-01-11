@@ -17,6 +17,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.uas_mobile.AppConfig
 import com.example.uas_mobile.Member.UpdateDataMember
+import com.example.uas_mobile.Member.ViewDataMember
 import com.example.uas_mobile.Peminjaman.SendDataPeminjaman
 import com.example.uas_mobile.Peminjaman.ViewDataPeminjaman
 import com.example.uas_mobile.R
@@ -35,8 +36,8 @@ class AdapterMember (var context: Context, private var memberList: List<Member>)
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val member= memberList[position]
-        holder.idMember.text = memberList[position].idMember
-        holder.name.text = memberList[position].name
+        holder.idMember.text = "ID Member : ${memberList[position].idMember}"
+        holder.name.text = "Nama : ${memberList[position].name}"
         holder.flowmenu.setOnClickListener {
             val popupMenu = PopupMenu(context, holder.flowmenu)
             popupMenu.inflate(R.menu.flow_menu_member)
@@ -64,7 +65,7 @@ class AdapterMember (var context: Context, private var memberList: List<Member>)
                                         try {
                                             val jsonObj = JSONObject(response)
                                             Toast.makeText(context, jsonObj.getString("message"), Toast.LENGTH_SHORT).show()
-                                            val intent = Intent(context, ViewDataPeminjaman::class.java)
+                                            val intent = Intent(context, ViewDataMember::class.java)
                                             context.startActivity(intent)
                                         }
                                         catch (e: JSONException) { e.printStackTrace() } },

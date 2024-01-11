@@ -39,8 +39,8 @@ class AdapterPengembalian (var context: Context, private var kembalilist: List<P
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val pengembalian = kembalilist[position]
-        holder.kodeKembali.text = kembalilist[position].kodeKembali
-        holder.tanggalKembali.text = kembalilist[position].tanggalKembali
+        holder.kodeKembali.text = "Kode Pengembalian : ${kembalilist[position].kodeKembali}"
+        holder.tanggalKembali.text = "Tanggal Pengembalian : ${kembalilist[position].tanggalKembali}"
         holder.flowmenu.setOnClickListener {
             val popupMenu = PopupMenu(context, holder.flowmenu)
             popupMenu.inflate(R.menu.flow_menu_pengembalian)
