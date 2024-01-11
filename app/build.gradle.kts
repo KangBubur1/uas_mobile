@@ -95,9 +95,18 @@ dependencies {
     //picasso
     implementation  ("com.squareup.picasso:picasso:2.8")
     //jetbrain
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
     //mysql
     implementation ("mysql:mysql-connector-java:8.0.26")
+
+
+    // Justify text
+    implementation ("com.codesgood:justifiedtextview:1.1.0")
+
+    // Blurry view
+
+
 
 
 }

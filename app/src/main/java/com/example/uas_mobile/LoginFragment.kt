@@ -81,18 +81,19 @@ class LoginFragment : Fragment() {
                 println("Server Response: $response")
 
                 val parts = response.split("|")
-                if (parts.size == 7 && parts[0] == "Success") {
+                if (parts.size == 8 && parts[0] == "Success") {
                     val userStatus = parts[1]
                     val name = parts[2]
                     val password = parts[3]
                     val tempatLahir = parts[4]
                     val tanggalLahir = parts[5]
                     val noTelepon = parts[6]
+                    val idMember = parts[7]
 
                     // Simpan informasi login
-                    saveLoginInfo(username, userStatus, name, password, tempatLahir, tanggalLahir, noTelepon)
+                    saveLoginInfo(username, userStatus, name, password, tempatLahir, tanggalLahir, noTelepon, idMember)
 
-                    Log.d("LoginFragment", "Saved login information: $username, $userStatus, $name, $password, $tempatLahir, $tanggalLahir, $noTelepon")
+                    Log.d("LoginFragment", "Saved login information: $username, $userStatus, $name, $password, $tempatLahir, $tanggalLahir, $noTelepon, $idMember")
 
                     val intent = if (isUserAdmin(userStatus)) {
                         Intent(requireContext(), AdminNav::class.java)
@@ -137,7 +138,7 @@ class LoginFragment : Fragment() {
     }
 
     // Menggunakan Sharedpreferences
-    private fun saveLoginInfo(username: String, userStatus: String, name: String, password: String, tempatLahir: String, tanggalLahir: String, noTelepon: String ) {
+    private fun saveLoginInfo(username: String, userStatus: String, name: String, password: String, tempatLahir: String, tanggalLahir: String, noTelepon: String, idMember: String ) {
         val sharedPreferences = requireContext().getSharedPreferences("loginPref",0)
         val editor = sharedPreferences.edit()
         editor.putString("username", username)
@@ -147,6 +148,7 @@ class LoginFragment : Fragment() {
         editor.putString("tempatLahir", tempatLahir)
         editor.putString("tanggalLahir", tanggalLahir)
         editor.putString("noTelepon", noTelepon)
+        editor.putString("idMember",idMember)
         editor.apply()
     }
 

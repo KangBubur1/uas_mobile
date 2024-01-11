@@ -18,12 +18,18 @@
     <string name="btnPrev">Previous</string>
     <string name="btnRegistrasi">Registrasi</string>
     <string name="add_new">add</string>
-    <string name="edit">Edit</string>
-    <string name="delete">Delete</string>
-    <string name="back">Back</string>
-    <string name="image">Image</string>
+    <string name="edit">edit</string>
+    <string name="delete">delete</string>
+    <string name="back">back</string>
     <string name="display">Display</string>
     <string name="logout">Logout</string>
-
+    <string name="image">Image</string>
+    <string name="btnPinjam">Booking\n</string>
+    <string name="btnRead">Read Online</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Vivamus eleifend, libero id tempor condimentum, arcu ipsum fermentum dui, eu efficitur elit odio nec arcu. Sed ut dui vel sapien tincidunt aliquet. Suspendisse ut ultrices tortor. Proin hendrerit, ipsum ut vehicula feugiat, dolor purus tincidunt lectus, eget finibus elit justo at libero. Duis in ultrices dui. Fusce vestibulum vulputate justo, ut dictum dui laoreet at. Integer ac fringilla ex. In hac habitasse platea dictumst. Duis non ligula ac eros venenatis feugiat. Vivamus a lacus velit. Sed ut imperdiet justo. Sed posuere libero in risus bibendum, eget malesuada lacus tincidunt.
+    In hac habitasse platea dictumst.
+    Vivamus luctus tincidunt metus, eget
+    sollicitudin sapien consectetur ac. Sed vestibulum laoreet lacus ac bibendum. Integer fermentum lectus
+        non arcu malesuada fermentum. Proin volutpat tincidunt efficitur. Nunc</string>
 
 </resources>
