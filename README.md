@@ -1,4 +1,3 @@
-Certainly! Below is a GitHub README.md file for your group project, an Android-based library application, with contributions noted for each team member.
 
 ```markdown
 # 📚 Library Management App
@@ -38,36 +37,6 @@ Welcome to the **Library Management App** project! This project is a collaborati
     - Open [phpMyAdmin](http://localhost/phpmyadmin/).
     - Create a new database (e.g., `library_db`).
     - Import the provided SQL file (`library_db.sql`) located in the backend folder.
-
-## 📂 Project Structure
-
-### Frontend (Android):
-
-```
-/library-management-app
-├── /app
-│   ├── /src
-│   │   ├── /main
-│   │   │   ├── /java/com/example/library
-│   │   │   ├── /res
-│   ├── build.gradle
-├── settings.gradle
-└── README.md
-```
-
-### Backend (PHP):
-
-```
-/library-management-app-backend
-├── /api
-│   ├── config.php
-│   ├── connect.php
-│   ├── book.php
-│   ├── user.php
-├── /sql
-│   ├── library_db.sql
-└── README.md
-```
 
 ## 🔗 Contributors
 
