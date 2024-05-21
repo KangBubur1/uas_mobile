@@ -25,11 +25,7 @@ Welcome to the **Library Management App** project! This project is a collaborati
     - Download and install [XAMPP](https://www.apachefriends.org/index.html).
     - Start the Apache and MySQL modules from the XAMPP control panel.
 
-2. **Clone the repository and set up the backend:**
-    ```bash
-    git clone [https://github.com/your-repository/library-management-app](https://github.com/KangBubur1/uas_mobile)-backend.git
-    ```
-    - Move the cloned backend folder to the `htdocs` directory of your XAMPP installation.
+2. **Move the PHP file outsite**
 
 3. **Import the database:**
     - Open [phpMyAdmin](http://localhost/phpmyadmin/).
