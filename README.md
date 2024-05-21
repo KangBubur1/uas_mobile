@@ -1,6 +1,4 @@
-
-```markdown
-# 📚 Library Management App
+📚 Library Management App
 
 Welcome to the **Library Management App** project! This project is a collaborative effort to develop a comprehensive library management application using **Android Studio** and **Kotlin** for the frontend, and **PHP** for the backend.
 
