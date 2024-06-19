@@ -47,32 +47,7 @@ This project is brought to you by:
 - 🔍 **Search Functionality**: Easily search for books and users.
 - 🛠️ **Admin Panel**: Admin functionalities for managing the library.
 
-## 🛠️ Installation
 
-1. **Frontend Installation:**
-    - Ensure you have Android Studio installed.
-    - Clone the repository and open it in Android Studio.
-    - Build and run the application on an Android device or emulator.
-
-2. **Backend Installation:**
-    - Install XAMPP.
-    - Move the backend project to the `htdocs` folder.
-    - Start Apache and MySQL from the XAMPP control panel.
-    - Import the provided SQL database file into phpMyAdmin.
-
-## 📝 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## 🙌 Acknowledgements
-
-Special thanks to:
-- The creators of **Android Studio** and **Kotlin**.
-- The PHP and XAMPP communities for their tools and support.
-
----
-
-Feel free to explore, contribute, and provide feedback!
 
 🔗 [GitHub Repository]((https://github.com/KangBubur1/uas_mobile))
 ```
